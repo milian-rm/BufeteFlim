@@ -74,3 +74,4 @@ public class ParteController {
         this.parteService.eliminarParte(codigo);
         return ResponseEntity.ok().build();
     }
+}

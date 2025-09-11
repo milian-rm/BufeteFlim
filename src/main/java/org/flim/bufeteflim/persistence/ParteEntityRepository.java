@@ -2,13 +2,16 @@ package org.flim.bufeteflim.persistence;
 
 import org.flim.bufeteflim.dominio.dto.ModParteDto;
 import org.flim.bufeteflim.dominio.dto.ParteDto;
+import org.flim.bufeteflim.dominio.exception.ParteNoExisteException;
+import org.flim.bufeteflim.dominio.exception.ParteYaExisteException;
+import org.flim.bufeteflim.dominio.repository.ParteRepository;
 import org.flim.bufeteflim.persistence.crud.CrudParteEntity;
 import org.flim.bufeteflim.persistence.entity.ParteEntity;
 import org.flim.bufeteflim.persistence.mapper.ParteMapper;
 
 import java.util.List;
 
-public class ParteEntityRepository {
+public class ParteEntityRepository implements ParteRepository {
     private final CrudParteEntity crudParteEntity;
     private  final ParteMapper parteMapper;
 

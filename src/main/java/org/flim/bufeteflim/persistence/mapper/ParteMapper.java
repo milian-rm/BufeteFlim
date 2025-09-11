@@ -1,11 +1,13 @@
 package org.flim.bufeteflim.persistence.mapper;
 
 import org.flim.bufeteflim.dominio.MaritalStatus;
+import org.flim.bufeteflim.dominio.dto.ModParteDto;
 import org.flim.bufeteflim.dominio.dto.ParteDto;
 import org.flim.bufeteflim.persistence.entity.ParteEntity;
 import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
+import org.mapstruct.MappingTarget;
 
 import java.util.List;
 
@@ -34,6 +36,8 @@ public interface ParteMapper {
     @Mapping(source = "maritalStatus", target = "estadoCivil", qualifiedByName = "generarEstadoCivil")
     @Mapping(source = "role", target = "rol", qualifiedByName = "generarRol")
     ParteEntity toEntity(ParteDto parteDto);
+
+    void modificarEntityFromDto(ModParteDto mod, @MappingTarget ParteEntity entity);
 
 
 }
