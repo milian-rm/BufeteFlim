@@ -1,5 +1,9 @@
 package org.flim.bufeteflim.dominio.service;
 
+import org.flim.bufeteflim.dominio.dto.ModParteDto;
+import org.flim.bufeteflim.dominio.dto.ParteDto;
+import org.flim.bufeteflim.dominio.repository.ParteRepository;
+
 import java.util.List;
 
 public class ParteService {
