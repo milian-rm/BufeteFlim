@@ -29,6 +29,6 @@ public class AbogadoEntity {
     @Column(length = 32, nullable = false)
     private String telefono;
     @Column(length = 150, nullable = false)
-    private String specialty;
+    private String especialidad;
 
 }

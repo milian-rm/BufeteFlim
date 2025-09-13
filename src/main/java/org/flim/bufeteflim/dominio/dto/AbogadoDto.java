@@ -10,7 +10,7 @@ public record AbogadoDto(
         @NotBlank(message = "El apellido es obligatorio")
         String lastName,
         @NotBlank(message = "El DPI es obligatorio")
-        String dpi,
+        String dpi1,
         @NotBlank(message = "El número de colegiado activo es obligatorio")
         String numActiveCollegiate,
         @NotBlank(message = "El correo es obligatorio")

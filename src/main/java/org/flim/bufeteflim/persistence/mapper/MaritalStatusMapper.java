@@ -1,7 +1,6 @@
 package org.flim.bufeteflim.persistence.mapper;
 
 import org.flim.bufeteflim.dominio.MaritalStatus;
-import org.flim.bufeteflim.dominio.MaritalStatus;
 import org.mapstruct.Named;
 
 public class MaritalStatusMapper {
