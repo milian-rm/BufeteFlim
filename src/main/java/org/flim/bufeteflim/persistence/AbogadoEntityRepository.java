@@ -2,6 +2,8 @@ package org.flim.bufeteflim.persistence;
 
 import org.flim.bufeteflim.dominio.dto.AbogadoDto;
 import org.flim.bufeteflim.dominio.dto.ModAbogadoDto;
+import org.flim.bufeteflim.dominio.exception.AbogadoNoExisteException;
+import org.flim.bufeteflim.dominio.exception.AbogadoYaExisteException;
 import org.flim.bufeteflim.dominio.repository.AbogadoRepository;
 import org.flim.bufeteflim.persistence.crud.CrudAbogadoEntity;
 import org.flim.bufeteflim.persistence.entity.AbogadoEntity;
@@ -33,7 +35,7 @@ public class AbogadoEntityRepository implements AbogadoRepository {
     @Override
     public AbogadoDto guardarAbogado(AbogadoDto abogadoDto) {
         if (this.crudAbogadoEntity.findFirstByNombre(abogadoDto.name()) != null){
-            throw new AbogadoYaExisteExeption(abogadoDto.name());
+            throw new AbogadoYaExisteException(abogadoDto.name());
         }
 
         //Creamos un objeto AbogadoEntity
@@ -53,7 +55,7 @@ public class AbogadoEntityRepository implements AbogadoRepository {
 
         //Exepciones
         if (abogado == null){
-            throw new AbogadoNoExisteExeption(id);
+            throw new AbogadoNoExisteException(id);
         }
         this.abogadoMapper.modificarEntityFromDto(modAbogado, abogado);
 
@@ -66,7 +68,7 @@ public class AbogadoEntityRepository implements AbogadoRepository {
         AbogadoEntity abogado = this.crudAbogadoEntity.findById(id).orElse(null);
 
         if (abogado == null){
-            throw new AbogadoNoExisteExeption(id);
+            throw new AbogadoNoExisteException(id);
         }else {
             this.crudAbogadoEntity.deleteById(id);
         }

@@ -20,7 +20,7 @@ public interface AbogadoMapper {
     @Mapping(source = "correo", target = "email")
     @Mapping(source = "telefono", target = "phone")
     @Mapping(source = "especialidad", target = "specialty", qualifiedByName = "generarSpecialty")
-    AbogadoDto tDto(AbogadoEntity entity);
+    AbogadoDto toDto(AbogadoEntity entity);
     
     List<AbogadoDto> toDto(Iterable<AbogadoEntity> entities);
 
