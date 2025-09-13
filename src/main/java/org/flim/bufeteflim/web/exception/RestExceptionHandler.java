@@ -1,10 +1,7 @@
 package org.flim.bufeteflim.web.exception;
 
-<<<<<<< HEAD
-=======
 import org.flim.bufeteflim.dominio.exception.AbogadoNoExisteException;
 import org.flim.bufeteflim.dominio.exception.AbogadoYaExisteException;
->>>>>>> ft/LeandroMaldonado
 import org.flim.bufeteflim.dominio.exception.ParteNoExisteException;
 import org.flim.bufeteflim.dominio.exception.ParteYaExisteException;
 import org.springframework.http.ResponseEntity;
@@ -16,13 +13,8 @@ import org.flim.bufeteflim.dominio.exception.Error;
 import java.util.ArrayList;
 import java.util.List;
 
-<<<<<<< HEAD
-@RestControllerAdvice
-public class RestExceptionHandler {
-=======
 public class RestExceptionHandler {
 
->>>>>>> ft/LeandroMaldonado
     @ExceptionHandler(ParteYaExisteException.class)
     public ResponseEntity<Error> handleException(ParteYaExisteException ex){
         Error error = new Error("parte-ya-existe", ex.getMessage());
@@ -35,8 +27,6 @@ public class RestExceptionHandler {
         return ResponseEntity.badRequest().body(error);
     }
 
-<<<<<<< HEAD
-=======
     @ExceptionHandler(AbogadoYaExisteException.class)
     public ResponseEntity<Error> handleException(AbogadoYaExisteException ex){
         Error error = new Error("abogado-ya-existe", ex.getMessage());
@@ -49,7 +39,6 @@ public class RestExceptionHandler {
         return ResponseEntity.badRequest().body(error);
     }
 
->>>>>>> ft/LeandroMaldonado
     @ExceptionHandler
     public ResponseEntity<List<Error>> handleException(MethodArgumentNotValidException ex){
         List<Error> errors = new ArrayList<>();
