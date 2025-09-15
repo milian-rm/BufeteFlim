@@ -2,6 +2,8 @@ package org.flim.bufeteflim.persistence;
 
 import org.flim.bufeteflim.dominio.dto.CasoDto;
 import org.flim.bufeteflim.dominio.dto.ModCasoDto;
+import org.flim.bufeteflim.dominio.exception.CasoNoExisteExeption;
+import org.flim.bufeteflim.dominio.exception.CasoYaExisteExeption;
 import org.flim.bufeteflim.dominio.repository.CasoRepository;
 import org.flim.bufeteflim.persistence.crud.CrudCasoEntity;
 import org.flim.bufeteflim.persistence.entity.CasoEntity;
@@ -32,7 +34,7 @@ public class CasoEntityRepository implements CasoRepository {
     @Override
     public CasoDto guardarCaso(CasoDto casoDto) {
         if (this.crudCasoEntity.findFirstByTitulo(casoDto.title()) != null){
-            throw new CasoYaExisteExeption(casoDto.title());
+            throw new CasoYaExisteExeption(casoDto.idCaso());
         }
 
         //Creamos el objeto CasoEntity
