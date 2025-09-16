@@ -22,7 +22,7 @@ public interface HistorialMapper {
     List<HistorialDto> toDto(Iterable<HistorialEntity> entities);
 
     @InheritInverseConfiguration
-    HistorialDto toEntity(HistorialDto dto);
+    HistorialEntity toEntity(HistorialDto dto);
 
     void modificarEntityFromDto(ModHistorialDto mod, @MappingTarget HistorialEntity entity);
 }
