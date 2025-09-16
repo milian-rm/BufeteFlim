@@ -5,12 +5,13 @@ import java.util.List;
 import org.flim.bufeteflim.dominio.dto.AbogadoDto;
 import org.flim.bufeteflim.dominio.dto.ModAbogadoDto;
 
+
 public interface AbogadoRepository {
     
     List<AbogadoDto> obtenerTodo();
-    AbogadoDto buscarPorId(Long id);
+    public AbogadoDto buscarPorId(Long idAbogado);
     AbogadoDto guardarAbogado(AbogadoDto abogadoDto);
-    AbogadoDto modificarAbogado(Long id, ModAbogadoDto modAbogado);
+    AbogadoDto modificarAbogado(Long idAbogado, ModAbogadoDto modAbogado);
     void eliminarAbogado(Long id);
     
 }

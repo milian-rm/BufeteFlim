@@ -10,7 +10,7 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
 
-@Mapper(componentModel = "spring")
+@Mapper(componentModel = "spring", uses = {SpecialtyMapper.class})
 public interface AbogadoMapper {
 
     @Mapping(source = "nombre", target = "name")

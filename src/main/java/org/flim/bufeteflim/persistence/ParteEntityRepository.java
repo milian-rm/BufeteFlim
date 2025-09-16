@@ -8,9 +8,11 @@ import org.flim.bufeteflim.dominio.repository.ParteRepository;
 import org.flim.bufeteflim.persistence.crud.CrudParteEntity;
 import org.flim.bufeteflim.persistence.entity.ParteEntity;
 import org.flim.bufeteflim.persistence.mapper.ParteMapper;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
 public class ParteEntityRepository implements ParteRepository {
     private final CrudParteEntity crudParteEntity;
     private  final ParteMapper parteMapper;

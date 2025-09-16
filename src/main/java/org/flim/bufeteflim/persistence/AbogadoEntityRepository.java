@@ -8,9 +8,11 @@ import org.flim.bufeteflim.dominio.repository.AbogadoRepository;
 import org.flim.bufeteflim.persistence.crud.CrudAbogadoEntity;
 import org.flim.bufeteflim.persistence.entity.AbogadoEntity;
 import org.flim.bufeteflim.persistence.mapper.AbogadoMapper;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
 public class AbogadoEntityRepository implements AbogadoRepository {
     private final CrudAbogadoEntity crudAbogadoEntity;
     private final AbogadoMapper abogadoMapper;
@@ -27,8 +29,8 @@ public class AbogadoEntityRepository implements AbogadoRepository {
     }
 
     @Override
-    public AbogadoDto buscarPorId(Long id) {
-        return this.abogadoMapper.toDto(this.crudAbogadoEntity.findById(id).orElse(null));
+    public AbogadoDto buscarPorId(Long idAbogado) {
+        return this.abogadoMapper.toDto(this.crudAbogadoEntity.findById(idAbogado).orElse(null));
     }
 
     //Falta AbogadoYaExisteExeption
@@ -50,12 +52,12 @@ public class AbogadoEntityRepository implements AbogadoRepository {
 
     //Falta AbogadoNoExisteExeption
     @Override
-    public AbogadoDto modificarAbogado(Long id, ModAbogadoDto modAbogado) {
-        AbogadoEntity abogado = this.crudAbogadoEntity.findById(id).orElse(null);
+    public AbogadoDto modificarAbogado(Long idAbogado, ModAbogadoDto modAbogado) {
+        AbogadoEntity abogado = this.crudAbogadoEntity.findById(idAbogado).orElse(null);
 
         //Exepciones
         if (abogado == null){
-            throw new AbogadoNoExisteException(id);
+            throw new AbogadoNoExisteException(idAbogado);
         }
         this.abogadoMapper.modificarEntityFromDto(modAbogado, abogado);
 

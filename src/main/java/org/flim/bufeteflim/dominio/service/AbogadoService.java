@@ -19,8 +19,8 @@ public class AbogadoService {
         return this.abogadoRepository.obtenerTodo();
     }
 
-    public AbogadoDto buscarPorId(Long id){
-        return this.abogadoRepository.buscarPorId(id);
+    public AbogadoDto buscarPorId(Long idAbogado){
+        return this.abogadoRepository.buscarPorId(idAbogado);
     }
 
     public AbogadoDto guardarAbogado(AbogadoDto abogadoDto){

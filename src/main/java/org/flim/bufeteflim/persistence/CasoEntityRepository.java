@@ -8,9 +8,11 @@ import org.flim.bufeteflim.dominio.repository.CasoRepository;
 import org.flim.bufeteflim.persistence.crud.CrudCasoEntity;
 import org.flim.bufeteflim.persistence.entity.CasoEntity;
 import org.flim.bufeteflim.persistence.mapper.CasoMapper;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
 public class CasoEntityRepository implements CasoRepository {
 
     private final CrudCasoEntity crudCasoEntity;

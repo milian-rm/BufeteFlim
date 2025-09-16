@@ -11,7 +11,7 @@ import org.mapstruct.MappingTarget;
 
 import java.util.List;
 
-@Mapper(componentModel = "spring", uses = {GenderMapper.class, MaritalStatus.class, RoleMapper.class})
+@Mapper(componentModel = "spring", uses = {GenderMapper.class, MaritalStatusMapper.class, RoleMapper.class})
 public interface ParteMapper {
 
     @Mapping(source = "nombre", target = "name")
@@ -32,7 +32,7 @@ public interface ParteMapper {
     List<ParteDto> toDto(Iterable<ParteEntity> entities);
 
     @InheritInverseConfiguration
-    @Mapping(source = "gender", target = "genero", qualifiedByName = "generarGenero")
+    @Mapping(source = "gender", target = "sexo", qualifiedByName = "generarGenero")
     @Mapping(source = "maritalStatus", target = "estadoCivil", qualifiedByName = "generarEstadoCivil")
     @Mapping(source = "role", target = "rol", qualifiedByName = "generarRol")
     ParteEntity toEntity(ParteDto parteDto);
