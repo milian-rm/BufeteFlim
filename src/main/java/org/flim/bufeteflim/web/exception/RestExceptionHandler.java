@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import java.util.ArrayList;
 import java.util.List;
 
+@RestControllerAdvice
 public class RestExceptionHandler {
-
     @ExceptionHandler(ParteYaExisteException.class)
     public ResponseEntity<Error> handleException(ParteYaExisteException ex){
         Error error = new Error("parte-ya-existe", ex.getMessage());
@@ -20,6 +20,19 @@ public class RestExceptionHandler {
     @ExceptionHandler(ParteNoExisteException.class)
     public ResponseEntity<Error> handleException(ParteNoExisteException ex){
         Error error = new Error("parte-no-existe", ex.getMessage());
+        return ResponseEntity.badRequest().body(error);
+    }
+
+    //Detalle Caso
+    @ExceptionHandler(DetalleCasoYaExisteException.class)
+    public ResponseEntity<Error> handleExceptionDetalleCaso(ParteYaExisteException ex){
+        Error error = new Error("detalle-caso-ya-existe", ex.getMessage());
+        return ResponseEntity.badRequest().body(error);
+    }
+
+    @ExceptionHandler(DetalleCasoNoExisteException.class)
+    public ResponseEntity<Error> handleExceptionDetalleCaso(ParteNoExisteException ex){
+        Error error = new Error("detalle-caso-no-existe", ex.getMessage());
         return ResponseEntity.badRequest().body(error);
     }
 
