@@ -7,7 +7,7 @@ import jakarta.validation.constraints.PastOrPresent;
 import java.time.LocalDate;
 
 public record ModHistorialDto(
-        Long idHistorial,
+        Long code,
         String description,
         Long idLawyer,
         Long idCase
