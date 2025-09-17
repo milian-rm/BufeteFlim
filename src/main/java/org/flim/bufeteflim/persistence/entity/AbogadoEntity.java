@@ -20,11 +20,11 @@ public class AbogadoEntity {
     private String nombre;
     @Column(length = 150, nullable = false)
     private String apellido;
-    @Column(length = 16, nullable = false)
+    @Column(length = 16, nullable = false, unique = true)
     private String dpi;
-    @Column(length = 12, nullable = false)
+    @Column(length = 12, nullable = false, unique = true)
     private String noColegiadoActivo;
-    @Column(length = 100, nullable = false)
+    @Column(length = 100, nullable = false, unique = true)
     private String correo;
     @Column(length = 32, nullable = false)
     private String telefono;

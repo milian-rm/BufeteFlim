@@ -13,16 +13,16 @@ public class CaseTypeMapper {
         return switch (caseTypeString.toUpperCase()) {
             case "CIVIL" -> CaseType.CIVIL;
             case "PENAL" -> CaseType.PENAL;
-            case "LABOR" -> CaseType.LABOR;
-            case "MERCANTILE" -> CaseType.MERCANTILE;
-            case "ADMINISTRATIVE" -> CaseType.ADMINISTRATIVE;
-            case "CONSTITUTIONAL" -> CaseType.CONSTITUTIONAL;
-            case "TRIBUTARY" -> CaseType.TRIBUTARY;
-            case "INTERNATIONAL" -> CaseType.INTERNATIONAL;
-            case "ENVIRONMENTAL" -> CaseType.ENVIRONMENTAL;
-            case "INTELLECTUAL_PROPERTY" -> CaseType.INTELLECTUAL_PROPERTY;
-            case "FAMILY" -> CaseType.FAMILY;
-            case "REAL_ESTATE" -> CaseType.REAL_ESTATE;
+            case "LABORAL" -> CaseType.LABOR;
+            case "MERCANTIL" -> CaseType.MERCANTILE;
+            case "ADMINISTRATIVO" -> CaseType.ADMINISTRATIVE;
+            case "CONSTITUCIONAL" -> CaseType.CONSTITUTIONAL;
+            case "TRIBUTARIO" -> CaseType.TRIBUTARY;
+            case "INTERNACIONAL" -> CaseType.INTERNATIONAL;
+            case "AMBIENTAL" -> CaseType.ENVIRONMENTAL;
+            case "PROPIEDAD_INTELECTUAL" -> CaseType.INTELLECTUAL_PROPERTY;
+            case "FAMILIA" -> CaseType.FAMILY;
+            case "INMOBILIARIO" -> CaseType.REAL_ESTATE;
             default -> null;
         };
     }
@@ -34,16 +34,16 @@ public class CaseTypeMapper {
         return switch (caseType) {
             case CIVIL -> "CIVIL";
             case PENAL -> "PENAL";
-            case LABOR -> "LABOR";
-            case MERCANTILE -> "MERCANTILE";
-            case ADMINISTRATIVE -> "ADMINISTRATIVE";
-            case CONSTITUTIONAL -> "CONSTITUTIONAL";
-            case TRIBUTARY -> "TRIBUTARY";
-            case INTERNATIONAL -> "INTERNATIONAL";
-            case ENVIRONMENTAL -> "ENVIRONMENTAL";
-            case INTELLECTUAL_PROPERTY -> "INTELLECTUAL_PROPERTY";
-            case FAMILY -> "FAMILY";
-            case REAL_ESTATE -> "REAL_ESTATE";
+            case LABOR -> "LABORAL";
+            case MERCANTILE -> "MERCANTIL";
+            case ADMINISTRATIVE -> "ADMINISTRATIVO";
+            case CONSTITUTIONAL -> "CONSTITUCIONAL";
+            case TRIBUTARY -> "TRIBUTARIO";
+            case INTERNATIONAL -> "INTERNACIONAL";
+            case ENVIRONMENTAL -> "AMBIENTAL";
+            case INTELLECTUAL_PROPERTY -> "PROPIEDAD_INTELECTUAL";
+            case FAMILY -> "FAMILIA";
+            case REAL_ESTATE -> "INMOBILIARIO";
             default -> null;
         };
     }

@@ -1,14 +1,10 @@
 package org.flim.bufeteflim.web.exception;
 
-import org.flim.bufeteflim.dominio.exception.AbogadoNoExisteException;
-import org.flim.bufeteflim.dominio.exception.AbogadoYaExisteException;
-import org.flim.bufeteflim.dominio.exception.ParteNoExisteException;
-import org.flim.bufeteflim.dominio.exception.ParteYaExisteException;
+import org.flim.bufeteflim.dominio.exception.*;
+import org.flim.bufeteflim.dominio.exception.Error;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.RestControllerAdvice;
-import org.flim.bufeteflim.dominio.exception.Error;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,6 +32,18 @@ public class RestExceptionHandler {
     @ExceptionHandler(AbogadoNoExisteException.class)
     public ResponseEntity<Error> handleException(AbogadoNoExisteException ex){
         Error error = new Error("abogado-no-existe", ex.getMessage());
+        return ResponseEntity.badRequest().body(error);
+    }
+
+    @ExceptionHandler(CasoYaExisteException.class)
+    public ResponseEntity<Error> handleException(CasoYaExisteException ex){
+        Error error = new Error("caso-ya-existe", ex.getMessage());
+        return ResponseEntity.badRequest().body(error);
+    }
+
+    @ExceptionHandler(CasoNoExisteExeption.class)
+    public ResponseEntity<Error> handleException(CasoNoExisteExeption ex){
+        Error error = new Error("caso-no-existe", ex.getMessage());
         return ResponseEntity.badRequest().body(error);
     }
 

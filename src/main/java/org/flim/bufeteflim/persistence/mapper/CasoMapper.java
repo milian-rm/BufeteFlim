@@ -32,5 +32,7 @@ public interface CasoMapper {
     @Mapping(source = "description", target = "descripcion")
     @Mapping(source = "startDate", target = "fechaInicio")
     @Mapping(source = "closingDate", target = "fechaCierre")
+    @Mapping(source = "status", target = "estado", qualifiedByName = "generarEstado")
+    @Mapping(source = "caseType", target = "tipoCaso", qualifiedByName = "generarTipoCaso")
     void modificarEntityFromDto(ModCasoDto mod, @MappingTarget CasoEntity entity);
 }
