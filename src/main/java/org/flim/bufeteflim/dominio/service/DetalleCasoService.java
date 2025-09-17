@@ -2,9 +2,11 @@ package org.flim.bufeteflim.dominio.service;
 
 import org.flim.bufeteflim.dominio.repository.DetalleCasoRepository;
 import org.flim.bufeteflim.dominio.dto.*;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class DetalleCasoService {
 
     private final DetalleCasoRepository detalleCasoRepository;

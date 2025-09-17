@@ -14,9 +14,7 @@ import java.time.LocalDate;
 
 public record DetalleCasoDto (
          Long codeDetail,
-         @NotBlank(message = "El id de la Parte es obligatorio")
          Long idComponent,
-         @NotBlank(message = "El id del Caso es obligatorio")
          Long idCase,
          @NotBlank(message = "El rol de la Parte en el Caso es obligatorio")
          String role

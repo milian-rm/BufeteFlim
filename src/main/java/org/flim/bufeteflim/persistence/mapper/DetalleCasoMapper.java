@@ -26,6 +26,9 @@ public interface DetalleCasoMapper {
     @Mapping(source = "role", target = "rolEnCaso", qualifiedByName = "generarRol")
     DetalleCasoEntity toEntity(DetalleCasoDto parteDto);
 
+    @Mapping(source = "idComponent", target = "idParte")
+    @Mapping(source = "idCase", target = "idCaso")
+    @Mapping(source = "role", target = "rolEnCaso")
     void modificarEntityFromDto(ModDetalleCasoDto mod, @MappingTarget DetalleCasoEntity entity);
 
 

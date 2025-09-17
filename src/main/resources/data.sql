@@ -18,4 +18,17 @@ INSERT IGNORE Casos (titulo, descripcion, fecha_inicio, fecha_cierre, estado, ti
 ('Reclamación de Herencia', 'Disputa sobre la distribución de bienes hereditarios.', '2023-12-05', '2024-07-01', 'FINALIZADO', 'PROPIEDAD_INTELECTUAL'),
 ('Caso de Fraude', 'Investigación de fraude financiero en empresa.', '2024-03-01', '2024-09-10', 'ARCHIVADO', 'FAMILIA');
 
+INSERT IGNORE detalles_caso(id_parte, id_caso, rol_en_caso) VALUES
+(1, 1, 'ATTORNEY'),
+(2, 2, 'COUNTERPARTY'),
+(3, 3, 'OTHER'),
+(4, 4, 'COUNTERPARTY'),
+(5, 5, 'COUNTERPARTY');
+
+INSERT IGNORE historiales(descripcion, id_abogado, id_caso) VALUES
+('Se presenta la demanda en el tribunal', 1, 5),
+('Primera audiencia programada para el 15/09/2025', 1, 4),
+('Se adjuntan nuevas pruebas al expediente del caso', 1, 3),
+('El juez emite una orden de restricción temporal', 2, 2),
+('Revisión de testimonios de los testigos clave', 3, 1);
 
