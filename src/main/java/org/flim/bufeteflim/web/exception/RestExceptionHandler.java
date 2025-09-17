@@ -1,12 +1,11 @@
 package org.flim.bufeteflim.web.exception;
 
-import org.flim.bufeteflim.dominio.exception.ParteNoExisteException;
-import org.flim.bufeteflim.dominio.exception.ParteYaExisteException;
+import org.flim.bufeteflim.dominio.exception.*;
+import org.flim.bufeteflim.dominio.exception.Error;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
-import org.flim.bufeteflim.dominio.exception.Error;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,14 +13,27 @@ import java.util.List;
 @RestControllerAdvice
 public class RestExceptionHandler {
     @ExceptionHandler(ParteYaExisteException.class)
-    public ResponseEntity<Error> handleException(ParteYaExisteException ex){
+    public ResponseEntity<Error> handleExceptionParte(ParteYaExisteException ex){
         Error error = new Error("parte-ya-existe", ex.getMessage());
         return ResponseEntity.badRequest().body(error);
     }
 
     @ExceptionHandler(ParteNoExisteException.class)
-    public ResponseEntity<Error> handleException(ParteNoExisteException ex){
+    public ResponseEntity<Error> handleExceptionParte(ParteNoExisteException ex){
         Error error = new Error("parte-no-existe", ex.getMessage());
+        return ResponseEntity.badRequest().body(error);
+    }
+
+    //Detalle Caso
+    @ExceptionHandler(DetalleCasoYaExisteException.class)
+    public ResponseEntity<Error> handleExceptionDetalleCaso(ParteYaExisteException ex){
+        Error error = new Error("detalle-caso-ya-existe", ex.getMessage());
+        return ResponseEntity.badRequest().body(error);
+    }
+
+    @ExceptionHandler(DetalleCasoNoExisteException.class)
+    public ResponseEntity<Error> handleExceptionDetalleCaso(ParteNoExisteException ex){
+        Error error = new Error("detalle-caso-no-existe", ex.getMessage());
         return ResponseEntity.badRequest().body(error);
     }
 
