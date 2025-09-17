@@ -11,6 +11,7 @@ public class RoleMapper {
         return switch (genero.toUpperCase()){
             case "Cliente" -> Role.ATTORNEY;
             case "Contraparte" -> Role.COUNTERPARTY;
+            case "Otro" -> Role.OTHER;
             default -> null;
         };
     }
@@ -22,6 +23,7 @@ public class RoleMapper {
         return switch (genre){
             case Role.ATTORNEY -> "Cliente";
             case Role.COUNTERPARTY -> "Contraparte";
+            case Role.OTHER -> "Otro";
             default -> null;
         };
     }
