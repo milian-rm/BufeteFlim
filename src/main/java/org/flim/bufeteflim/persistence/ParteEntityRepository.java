@@ -57,7 +57,6 @@ public class ParteEntityRepository implements ParteRepository {
             throw new ParteNoExisteException(codigo);
         }
         this.parteMapper.modificarEntityFromDto(modParte, parte);
-
         return this.parteMapper.toDto(this.crudParteEntity.save(parte));
     }
 

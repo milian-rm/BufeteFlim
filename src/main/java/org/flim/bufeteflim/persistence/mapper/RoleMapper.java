@@ -9,8 +9,8 @@ public class RoleMapper {
         if (genero == null) return null;
 
         return switch (genero.toUpperCase()){
-            case "Cliente" -> Role.ATTORNEY;
-            case "Contraparte" -> Role.COUNTERPARTY;
+            case "CLIENTE" -> Role.ATTORNEY;
+            case "CONTRAPARTE" -> Role.COUNTERPARTY;
             default -> null;
         };
     }

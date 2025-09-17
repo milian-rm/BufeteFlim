@@ -9,8 +9,8 @@ public class GenderMapper {
         if (genero == null) return null;
 
         return switch (genero.toUpperCase()){
-            case "Masculino" -> Gender.MALE;
-            case "Femenino" -> Gender.FEMALE;
+            case "MASCULINO" -> Gender.MALE;
+            case "FEMENINO" -> Gender.FEMALE;
             default -> null;
         };
     }

@@ -65,7 +65,7 @@ public class ParteController {
 
     //modificar
     @PutMapping("{codigo}")
-    public ResponseEntity<ParteDto> modificarParte(@PathVariable Long codigo, @RequestBody ModParteDto modParte){
+    public ResponseEntity<ParteDto> modificarParte(@PathVariable("codigo") Long codigo, @RequestBody ModParteDto modParte){
         return ResponseEntity.ok(this.parteService.modificarParte(codigo, modParte));
     }
     //eliminar

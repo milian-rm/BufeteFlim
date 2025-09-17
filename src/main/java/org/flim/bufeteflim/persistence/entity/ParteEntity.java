@@ -11,12 +11,12 @@ import java.time.LocalDate;
 public class ParteEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long codigo;
+    private Long idParte;
     @Column(length = 100, nullable = false)
     private String nombre;
     @Column(length = 100, nullable = false)
     private String apellido;
-    @Column(length = 16)
+    @Column(length = 16, unique = true)
     private String dpi;
     @Column(length = 20)
     private String estadoCivil;
@@ -34,7 +34,7 @@ public class ParteEntity {
     private String domicilio;
     @Column(length = 32)
     private String telefono;
-    @Column(length = 32)
+    @Column(length = 32, unique = true)
     private String nit;
     @Column(length = 20)
     private String rol;

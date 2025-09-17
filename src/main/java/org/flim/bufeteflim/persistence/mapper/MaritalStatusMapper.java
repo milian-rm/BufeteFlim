@@ -9,11 +9,11 @@ public class MaritalStatusMapper {
         if (estado == null) return null;
 
         return switch (estado.toUpperCase()){
-            case "Soltero/a" -> MaritalStatus.SINGLE;
-            case "Casado/a" -> MaritalStatus.MARRIED;
-            case "Viudo/a" -> MaritalStatus.WIDOWED;
-            case "Divorciado/a" -> MaritalStatus.DIVORCED;
-            case "Union de Hecho" -> MaritalStatus.COHABITING_COUPLE;
+            case "SOLTERO/A" -> MaritalStatus.SINGLE;
+            case "CASADO/A" -> MaritalStatus.MARRIED;
+            case "VIUDO/A" -> MaritalStatus.WIDOWED;
+            case "DIVORCIADO/A" -> MaritalStatus.DIVORCED;
+            case "UNION_DE_HECHO" -> MaritalStatus.COHABITING_COUPLE;
             default -> null;
         };
     }
@@ -27,7 +27,7 @@ public class MaritalStatusMapper {
             case MaritalStatus.MARRIED -> "Casado/a";
             case MaritalStatus.WIDOWED -> "Viudo/a";
             case MaritalStatus.DIVORCED -> "Divorciado/a";
-            case MaritalStatus.COHABITING_COUPLE -> "Union de Hecho";
+            case MaritalStatus.COHABITING_COUPLE -> "UNION_DE_HECHO";
             default -> null;
         };
     }
