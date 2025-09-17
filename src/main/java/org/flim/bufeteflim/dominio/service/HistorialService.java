@@ -31,7 +31,7 @@ public class HistorialService {
         return this.historialRepository.modificarHistorial(id, modHistorialDto);
     }
 
-    public void eliminarPelicula(Long id){
+    public void eliminarHistorial(Long id){
         this.historialRepository.eliminarHistorial(id);
     }
 }
