@@ -6,4 +6,5 @@ import org.springframework.data.repository.CrudRepository;
 public interface CrudAbogadoEntity extends CrudRepository<AbogadoEntity, Long> {
 
     AbogadoEntity findFirstByNombre(String nombre);
+    AbogadoEntity findFirtsByDpi(String dpi);
 }

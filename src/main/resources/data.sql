@@ -5,11 +5,11 @@ INSERT IGNORE INTO partes (nombre, apellido, dpi, estado_civil, fecha_nacimiento
 ('María', 'López', '1122334455667', 'Union de Hecho', '1995-08-05', 'Estudiante', 'Femenino', 'Chimaltenango', 'Garífuna', 'Zona 18, Ciudad', '5555-8888', '1122334-5', 'Contraparte');
 
 INSERT INTO abogados (nombre, apellido, dpi, no_colegiado_activo, correo, telefono, especialidad) VALUES
-('Laura', 'Hernández', '1234567890101', 'A12345', 'laura.hernandez@bufete.com', '5555-1234', 'Derecho Penal'),
-('Juan', 'Pérez', '2345678901212', 'B23456', 'juan.perez@bufete.com', '5555-5678', 'Derecho Civil'),
-('Carla', 'Ramírez', '3456789012323', 'C34567', 'carla.ramirez@bufete.com', '5555-8765', 'Derecho Laboral'),
-('Miguel', 'Sánchez', '4567890123434', 'D45678', 'miguel.sanchez@bufete.com', '5555-4321', 'Derecho Mercantil'),
-('Ana', 'López', '5678901234545', 'E56789', 'ana.lopez@bufete.com', '5555-0000', 'Derecho Constitucional');
+('Laura', 'Hernández', '1234567890101', 'A12345', 'laura.hernandez@bufete.com', '5555-1234', 'MERCANTIL'),
+('Juan', 'Pérez', '2345678901212', 'B23456', 'juan.perez@bufete.com', '5555-5678', 'ADMINISTRATIVO'),
+('Carla', 'Ramírez', '3456789012323', 'C34567', 'carla.ramirez@bufete.com', '5555-8765', 'INTERNACIONAL'),
+('Miguel', 'Sánchez', '4567890123434', 'D45678', 'miguel.sanchez@bufete.com', '5555-4321', 'PROPIEDAD_INTELECTUAL'),
+('Ana', 'López', '5678901234545', 'E56789', 'ana.lopez@bufete.com', '5555-0000', 'FAMILIA');
 
 INSERT INTO Casos (titulo, descripcion, fecha_inicio, fecha_cierre, estado, tipoCaso) VALUES
 ('Caso de Robo', 'Investigación y resolución de caso por robo en propiedad privada.', '2024-01-15', '2024-06-01', 'Cerrado', 'Penal'),

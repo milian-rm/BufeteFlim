@@ -21,12 +21,19 @@ public interface AbogadoMapper {
     @Mapping(source = "telefono", target = "phone")
     @Mapping(source = "especialidad", target = "specialty", qualifiedByName = "generarSpecialty")
     AbogadoDto toDto(AbogadoEntity entity);
-    
+
     List<AbogadoDto> toDto(Iterable<AbogadoEntity> entities);
 
     @InheritInverseConfiguration
     @Mapping(source = "specialty", target = "especialidad", qualifiedByName = "generarEspecialidad")
     AbogadoEntity toEntity(AbogadoDto dto);
 
+    @Mapping(source = "name", target = "nombre")
+    @Mapping(source = "lastName", target = "apellido")
+    @Mapping(source = "dpi1", target = "dpi")
+    @Mapping(source = "numActiveCollegiate", target = "noColegiadoActivo")
+    @Mapping(source = "email", target = "correo")
+    @Mapping(source = "phone", target = "telefono")
+    @Mapping(source = "specialty", target = "especialidad", qualifiedByName = "generarEspecialidad")
     void modificarEntityFromDto(ModAbogadoDto mod, @MappingTarget AbogadoEntity entity);
 }

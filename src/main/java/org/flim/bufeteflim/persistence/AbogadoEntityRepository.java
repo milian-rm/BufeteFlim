@@ -29,15 +29,15 @@ public class AbogadoEntityRepository implements AbogadoRepository {
     }
 
     @Override
-    public AbogadoDto buscarPorId(Long idAbogado) {
-        return this.abogadoMapper.toDto(this.crudAbogadoEntity.findById(idAbogado).orElse(null));
+    public AbogadoDto buscarPorId(Long id) {
+        return this.abogadoMapper.toDto(this.crudAbogadoEntity.findById(id).orElse(null));
     }
 
     //Falta AbogadoYaExisteExeption
     @Override
     public AbogadoDto guardarAbogado(AbogadoDto abogadoDto) {
-        if (this.crudAbogadoEntity.findFirstByNombre(abogadoDto.name()) != null){
-            throw new AbogadoYaExisteException(abogadoDto.name());
+        if (this.crudAbogadoEntity.findFirtsByDpi(abogadoDto.dpi1()) != null){
+            throw new AbogadoYaExisteException(abogadoDto.dpi1());
         }
 
         //Creamos un objeto AbogadoEntity
@@ -52,12 +52,12 @@ public class AbogadoEntityRepository implements AbogadoRepository {
 
     //Falta AbogadoNoExisteExeption
     @Override
-    public AbogadoDto modificarAbogado(Long idAbogado, ModAbogadoDto modAbogado) {
-        AbogadoEntity abogado = this.crudAbogadoEntity.findById(idAbogado).orElse(null);
+    public AbogadoDto modificarAbogado(Long id, ModAbogadoDto modAbogado) {
+        AbogadoEntity abogado = this.crudAbogadoEntity.findById(id).orElse(null);
 
         //Exepciones
         if (abogado == null){
-            throw new AbogadoNoExisteException(idAbogado);
+            throw new AbogadoNoExisteException(id);
         }
         this.abogadoMapper.modificarEntityFromDto(modAbogado, abogado);
 
