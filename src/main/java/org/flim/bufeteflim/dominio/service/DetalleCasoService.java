@@ -28,7 +28,7 @@ public class DetalleCasoService {
         return this.detalleCasoRepository.modificarDetalleCaso(id, modDetalleCasoDto);
     }
 
-    public void eliminarPelicula(Long id){
+    public void eliminarDetalleCaso(Long id){
         this.detalleCasoRepository.eliminarDetalleCaso(id);
     }
 }
