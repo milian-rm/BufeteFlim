@@ -17,3 +17,5 @@ INSERT IGNORE Casos (titulo, descripcion, fecha_inicio, fecha_cierre, estado, ti
 ('Divorcio Contencioso', 'Proceso legal para la disolución del matrimonio.', '2024-02-20', '2024-08-15', 'EN_PROCESO', 'INMOBILIARIO'),
 ('Reclamación de Herencia', 'Disputa sobre la distribución de bienes hereditarios.', '2023-12-05', '2024-07-01', 'FINALIZADO', 'PROPIEDAD_INTELECTUAL'),
 ('Caso de Fraude', 'Investigación de fraude financiero en empresa.', '2024-03-01', '2024-09-10', 'ARCHIVADO', 'FAMILIA');
+
+
