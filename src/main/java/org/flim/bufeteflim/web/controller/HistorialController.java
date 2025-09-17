@@ -21,6 +21,8 @@ import java.util.List;
 public class HistorialController {
     private final HistorialService historialService;
 
+    public HistorialController(HistorialService historialService){this.historialService = historialService;}
+
     @GetMapping
     public ResponseEntity<List<HistorialDto>> obtenerHistoriales(){
         return ResponseEntity.ok(historialService.obtenerTodo());
