@@ -12,6 +12,7 @@ public class ParteEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idParte;
+
     @Column(length = 100, nullable = false)
     private String nombre;
     @Column(length = 100, nullable = false)

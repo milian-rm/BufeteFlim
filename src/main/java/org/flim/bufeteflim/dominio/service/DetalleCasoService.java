@@ -6,9 +6,10 @@ import org.flim.bufeteflim.dominio.dto.*;
 import java.util.List;
 
 public class DetalleCasoService {
+
     private final DetalleCasoRepository detalleCasoRepository;
 
-    public DetalleCasoRepository(DetalleCasoRepository detalleCasoRepository){
+    public DetalleCasoService(DetalleCasoRepository detalleCasoRepository){
         this.detalleCasoRepository = detalleCasoRepository;
     }
 
@@ -28,7 +29,7 @@ public class DetalleCasoService {
         return this.detalleCasoRepository.modificarDetalleCaso(id, modDetalleCasoDto);
     }
 
-    public void eliminarPelicula(Long id){
+    public void eliminarDetalleCaso(Long id){
         this.detalleCasoRepository.eliminarDetalleCaso(id);
     }
 }

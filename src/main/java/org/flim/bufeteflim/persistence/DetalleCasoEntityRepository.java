@@ -34,7 +34,7 @@ public class DetalleCasoEntityRepository implements DetalleCasoRepository {
 
     @Override
     public DetalleCasoDto guardarDetalleCaso(DetalleCasoDto detalleCasoDto) {
-        if (this.crudDetalleCasoEntity.findFirstById(detalleCasoDto.codeDetail()) != null){
+        if (this.crudDetalleCasoEntity.findFirstByCodigo(detalleCasoDto.codeDetail()) != null){
             throw new DetalleCasoYaExisteException(detalleCasoDto.codeDetail());
         }
         DetalleCasoEntity detalleCaso = new DetalleCasoEntity();

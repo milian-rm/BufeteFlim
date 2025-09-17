@@ -14,16 +14,16 @@ import java.util.List;
 @Mapper(componentModel = "spring", uses = {RoleMapper.class})
 public interface DetalleCasoMapper {
 
-    @Mapping(source = "idDetalleCaso", target = "idDetail")
+    @Mapping(source = "codigo", target = "codeDetail")
     @Mapping(source = "idParte", target = "idComponent")
     @Mapping(source = "idCaso", target = "idCase")
-    @Mapping(source = "rol", target = "role")
+    @Mapping(source = "rolEnCaso", target = "role")
     DetalleCasoDto toDto(DetalleCasoEntity parteEntity);
 
     List<DetalleCasoDto> toDto(Iterable<DetalleCasoEntity> entities);
 
     @InheritInverseConfiguration
-    @Mapping(source = "role", target = "rol", qualifiedByName = "generarRol")
+    @Mapping(source = "role", target = "rolEnCaso", qualifiedByName = "generarRol")
     DetalleCasoEntity toEntity(DetalleCasoDto parteDto);
 
     void modificarEntityFromDto(ModDetalleCasoDto mod, @MappingTarget DetalleCasoEntity entity);
