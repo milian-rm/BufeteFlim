@@ -9,7 +9,7 @@ import org.flim.bufeteflim.dominio.Role;
 import java.time.LocalDate;
 
 public record ParteDto(
-        //No se manejan más caso ya que no siempre se tiene la información completa de la ContraParte
+        //No se manejan más validaciones ya que no siempre se tiene la información completa de la ContraParte
         @NotBlank(message = "El nombre es Obligatorio")
         String name,
         @NotBlank(message = "El Apellido es Obligatorio")
