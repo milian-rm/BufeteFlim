@@ -2,6 +2,8 @@ package org.flim.bufeteflim.persistence;
 
 import org.flim.bufeteflim.dominio.dto.GestionDto;
 import org.flim.bufeteflim.dominio.dto.ModGestionDto;
+import org.flim.bufeteflim.dominio.exception.GestionNoExisteException;
+import org.flim.bufeteflim.dominio.exception.GestionYaExisteException;
 import org.flim.bufeteflim.dominio.repository.GestionRepository;
 import org.flim.bufeteflim.persistence.crud.CrudGestionEntity;
 import org.flim.bufeteflim.persistence.entity.GestionEntity;
