@@ -1,10 +1,13 @@
 package org.flim.bufeteflim.dominio.service;
 
 import org.flim.bufeteflim.dominio.dto.GestionDto;
+import org.flim.bufeteflim.dominio.dto.ModGestionDto;
 import org.flim.bufeteflim.dominio.repository.GestionRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class GestionService {
     private final GestionRepository gestionRepository;
 
@@ -28,8 +31,8 @@ public class GestionService {
         return this.gestionRepository.guardarGestion(gestionDto);
     }
 
-    public GestionDto modificarGestion(Long id, GestionDto gestionDto){
-        return this.gestionRepository.modificarGestion(id, gestionDto);
+    public GestionDto modificarGestion(Long id, ModGestionDto modGestionDto){
+        return this.gestionRepository.modificarGestion(id, modGestionDto);
     }
 
     public void eliminarGestion(Long id){

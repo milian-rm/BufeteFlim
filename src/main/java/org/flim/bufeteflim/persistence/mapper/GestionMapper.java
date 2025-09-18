@@ -11,7 +11,7 @@ import org.mapstruct.MappingTarget;
 import java.util.List;
 
 @Mapper(componentModel = "spring", uses = {TypeMapper.class, Status1Mapper.class})
-public interface GestionMapping {
+public interface GestionMapper {
 
     @Mapping(source = "tipo", target = "type", qualifiedByName = "generarType")
     @Mapping(source = "descripcion", target = "description")
