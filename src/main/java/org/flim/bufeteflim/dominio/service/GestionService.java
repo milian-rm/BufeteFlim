@@ -1,0 +1,38 @@
+package org.flim.bufeteflim.dominio.service;
+
+import org.flim.bufeteflim.dominio.dto.GestionDto;
+import org.flim.bufeteflim.dominio.repository.GestionRepository;
+
+import java.util.List;
+
+public class GestionService {
+    private final GestionRepository gestionRepository;
+
+    public GestionService(GestionRepository gestionRepository){
+        this.gestionRepository = gestionRepository;
+    }
+
+    public List<GestionDto> obtenerTodo(){
+        return this.gestionRepository.obtenerTodo();
+    }
+
+    public GestionDto buscarPorId(Long id){
+        return this.gestionRepository.buscarPorId(id);
+    }
+
+    public GestionDto buscarPorEstado(String estado){
+        return this.gestionRepository.buscarPorEstado(estado);
+    }
+
+    public GestionDto guardarGestion(GestionDto gestionDto){
+        return this.gestionRepository.guardarGestion(gestionDto);
+    }
+
+    public GestionDto modificarGestion(Long id, GestionDto gestionDto){
+        return this.gestionRepository.modificarGestion(id, gestionDto);
+    }
+
+    public void eliminarGestion(Long id){
+        this.gestionRepository.eliminarGestion(id);
+    }
+}
