@@ -48,7 +48,7 @@ public class GestionController {
     }
 
     //Busca las gestion por su estado
-    @GetMapping("{estado}")
+    @GetMapping("estado/{estado}")
     @Operation(
             summary = "Obtener gestiones por su Estado",
             description = "Retorna las gestiones que coincida con el Estado solicitado",
@@ -57,7 +57,7 @@ public class GestionController {
                     @ApiResponse(responseCode = "404", description = "Gestion No Encontrada", content = @Content)
             }
     )
-    public ResponseEntity<GestionDto> buscarPorEstado
+    public ResponseEntity<List<GestionDto>> buscarPorEstado
     (@Parameter(description = "Estado de la gestion a recuperar", example = "COMPLETADA")
      @PathVariable String estado){
         return ResponseEntity.ok(this.gestionService.buscarPorEstado(estado));

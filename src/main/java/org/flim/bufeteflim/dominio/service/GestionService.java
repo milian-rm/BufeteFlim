@@ -18,12 +18,11 @@ public class GestionService {
     public List<GestionDto> obtenerTodo(){
         return this.gestionRepository.obtenerTodo();
     }
-
     public GestionDto buscarPorId(Long id){
         return this.gestionRepository.buscarPorId(id);
     }
 
-    public GestionDto buscarPorEstado(String estado){
+    public List<GestionDto> buscarPorEstado(String estado){
         return this.gestionRepository.buscarPorEstado(estado);
     }
 

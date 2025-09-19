@@ -12,7 +12,7 @@ public record ModGestionDto(
         String description,
         LocalDate creationDate,
         LocalDate expirationDate,
-        Status1 state,
+        Status1 status1,
         String observations,
         @NotNull(message = "El id del caso es obligatorio")
         Long idCase,

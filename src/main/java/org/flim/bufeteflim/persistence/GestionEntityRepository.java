@@ -3,7 +3,6 @@ package org.flim.bufeteflim.persistence;
 import org.flim.bufeteflim.dominio.dto.GestionDto;
 import org.flim.bufeteflim.dominio.dto.ModGestionDto;
 import org.flim.bufeteflim.dominio.exception.GestionNoExisteException;
-import org.flim.bufeteflim.dominio.exception.GestionYaExisteException;
 import org.flim.bufeteflim.dominio.repository.GestionRepository;
 import org.flim.bufeteflim.persistence.crud.CrudGestionEntity;
 import org.flim.bufeteflim.persistence.entity.GestionEntity;
@@ -33,15 +32,12 @@ public class GestionEntityRepository implements GestionRepository {
     }
 
     @Override
-    public GestionDto buscarPorEstado(String estado) {
-        return this.gestionMapper.toDto(this.crudGestionEntity.findFirstByEstado(estado));
+    public List<GestionDto> buscarPorEstado(String estado) {
+        return this.gestionMapper.toDto(this.crudGestionEntity.findByEstado(estado));
     }
 
     @Override
     public GestionDto guardarGestion(GestionDto gestionDto) {
-        if (this.crudGestionEntity.findById(gestionDto.idManagement()) != null){
-            throw new GestionYaExisteException(gestionDto.idManagement());
-        }
 
         GestionEntity gestion = new GestionEntity();
         gestion = this.gestionMapper.toEntity(gestionDto);

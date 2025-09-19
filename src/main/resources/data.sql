@@ -32,3 +32,9 @@ INSERT IGNORE historiales(descripcion, id_abogado, id_caso) VALUES
 ('El juez emite una orden de restricción temporal', 2, 2),
 ('Revisión de testimonios de los testigos clave', 3, 1);
 
+INSERT IGNORE gestiones (tipo, descripcion, fecha_creacion, fecha_vencimiento, estado, observaciones, id_caso, id_abogado, id_historial) VALUES
+('DEMANDA', 'Presentación de demanda civil por incumplimiento de contrato', '2025-09-01', '2025-10-01', 'PENDIENTE', 'Se entregaron documentos al juzgado', 1, 3, 5),
+('ORIENTACIÓN', 'Audiencia preliminar en juzgado de lo penal', '2025-08-15', '2025-09-20', 'PENDIENTE', 'Se solicitó reprogramación por ausencia del juez', 2, 1, 2),
+('MEMORIAL', 'Sesión de mediación entre las partes', '2025-09-10', '2025-09-25', 'PENDIENTE', 'El cliente aún no confirma asistencia', 3, 4, 3),
+('ASESORIA', 'Interposición de recurso de apelación', '2025-07-30', '2025-09-30', 'COMPLETADA', 'Resolución favorable al cliente', 4, 2, 1),
+('QUERELLA', 'Revisión de expediente y asesoría legal', '2025-09-18', '2025-09-18', 'COMPLETADA', 'Se entregó informe escrito al cliente', 5, 5, 4);

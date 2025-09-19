@@ -13,6 +13,7 @@ import java.util.List;
 @Mapper(componentModel = "spring", uses = {TypeMapper.class, Status1Mapper.class})
 public interface GestionMapper {
 
+    @Mapping(source = "idGestion", target = "idManagement")
     @Mapping(source = "tipo", target = "type", qualifiedByName = "generarType")
     @Mapping(source = "descripcion", target = "description")
     @Mapping(source = "fechaCreacion", target = "creationDate")
@@ -27,8 +28,8 @@ public interface GestionMapper {
     List<GestionDto> toDto(Iterable<GestionEntity> entities);
 
     @InheritInverseConfiguration
-    @Mapping(source = "status1", target = "tipo", qualifiedByName = "generarTipo")
-    @Mapping(source = "type", target = "estado", qualifiedByName = "generarEstado1")
+    @Mapping(source = "type", target = "tipo", qualifiedByName = "generarTipo")
+    @Mapping(source = "status1", target = "estado", qualifiedByName = "generarEstado1")
     GestionEntity toEntity(GestionDto dto);
 
     @Mapping(source = "type", target = "tipo", qualifiedByName = "generarTipo")
