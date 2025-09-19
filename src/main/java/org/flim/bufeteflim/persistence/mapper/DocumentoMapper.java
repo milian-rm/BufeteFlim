@@ -8,6 +8,8 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
 
+import java.util.List;
+
 @Mapper(componentModel = "spring", uses = {DocumentTypeMapper.class, CasoMapper.class})
 public interface DocumentoMapper {
 
@@ -15,6 +17,8 @@ public interface DocumentoMapper {
     @Mapping(source = "tipoDocumento", target = "documentType", qualifiedByName = "generarDocumentType")
     @Mapping(source = "caso", target = "casoDto")
     DocumentoDto toDto(DocumentoEntity entity);
+
+    List<DocumentoDto> toDto(Iterable<DocumentoEntity> entities);
 
     @InheritInverseConfiguration
     @Mapping(source = "documentType", target = "tipoDocumento", qualifiedByName = "generarTipoDocumento")
