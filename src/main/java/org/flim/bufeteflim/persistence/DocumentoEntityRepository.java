@@ -2,6 +2,8 @@ package org.flim.bufeteflim.persistence;
 
 import org.flim.bufeteflim.dominio.dto.DocumentoDto;
 import org.flim.bufeteflim.dominio.dto.ModDocumentoDto;
+import org.flim.bufeteflim.dominio.exception.DocumentoNoExisteException;
+import org.flim.bufeteflim.dominio.exception.DocumentoYaExisteException;
 import org.flim.bufeteflim.dominio.repository.DocumentoRepository;
 import org.flim.bufeteflim.persistence.crud.CrudDocumentoEntity;
 import org.flim.bufeteflim.persistence.entity.DocumentoEntity;
@@ -48,10 +50,13 @@ public class DocumentoEntityRepository implements DocumentoRepository {
         DocumentoEntity documento = this.crudDocumentoEntity.findById(idDocumento).orElse(null);
         if (documento == null){
             throw new DocumentoNoExisteException(idDocumento);
-        }else{
-            this.documentoMapper.modificarEntityFromDto(modDocumentoDto, documento);
-            return documentoMapper.toDto(this.crudDocumentoEntity.save(documento));
         }
+        DocumentoEntity existente = this.crudDocumentoEntity.findFirstByNombre(modDocumentoDto.name());
+        if (existente != null && !existente.getIdDocumento().equals(idDocumento)) {
+            throw new DocumentoYaExisteException(modDocumentoDto.name());
+        }
+        this.documentoMapper.modificarEntityFromDto(modDocumentoDto, documento);
+        return documentoMapper.toDto(this.crudDocumentoEntity.save(documento));
     }
 
     @Override

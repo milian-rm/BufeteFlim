@@ -12,7 +12,6 @@ public record DocumentoDto(
         @NotNull(message = "El tipo de documento es obligatorio")
         DocumentType documentType,
         @NotNull(message = "El caso al que pertenece el documento es obligatorio")
-        @Valid
         CasoDto casoDto
 ) {
 }

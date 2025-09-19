@@ -1,7 +1,9 @@
 package org.flim.bufeteflim.persistence.mapper;
 
+import org.flim.bufeteflim.dominio.dto.CasoDto;
 import org.flim.bufeteflim.dominio.dto.DocumentoDto;
 import org.flim.bufeteflim.dominio.dto.ModDocumentoDto;
+import org.flim.bufeteflim.persistence.entity.CasoEntity;
 import org.flim.bufeteflim.persistence.entity.DocumentoEntity;
 import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;
@@ -22,10 +24,20 @@ public interface DocumentoMapper {
 
     @InheritInverseConfiguration
     @Mapping(source = "documentType", target = "tipoDocumento", qualifiedByName = "generarTipoDocumento")
+    @Mapping(target = "caso", expression = "java(casoFromDto(dto.casoDto()))")
     DocumentoEntity toEntity(DocumentoDto dto);
 
     @Mapping(source = "name", target = "nombre")
     @Mapping(source = "documentType", target = "tipoDocumento", qualifiedByName = "generarTipoDocumento")
-    @Mapping(source = "casoDto", target = "caso")
+    @Mapping(target = "caso", expression = "java(casoFromDto(mod.casoDto()))")
     void modificarEntityFromDto(ModDocumentoDto mod, @MappingTarget DocumentoEntity entity);
+
+    default CasoEntity casoFromDto(CasoDto dto) {
+        if (dto == null || dto.idCaso() == null) {
+            return null;
+        }
+        CasoEntity caso = new CasoEntity();
+        caso.setIdCaso(dto.idCaso());
+        return caso;
+    }
 }
