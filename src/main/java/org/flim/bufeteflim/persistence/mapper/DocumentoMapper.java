@@ -8,7 +8,7 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
 
-@Mapper(componentModel = "spring", uses = {DocumentoMapper.class, CasoMapper.class})
+@Mapper(componentModel = "spring", uses = {DocumentTypeMapper.class, CasoMapper.class})
 public interface DocumentoMapper {
 
     @Mapping(source = "nombre", target = "name")
