@@ -28,7 +28,7 @@ public class HistorialController {
         return ResponseEntity.ok(historialService.obtenerTodo());
     }
 
-    @GetMapping("/{idHistorial}")
+    @GetMapping("/{id}")
     @Operation(
             summary = "Obtener un Historial por su identificador",
             description = "Retornar la parte que coincida con el identificador enviado",
@@ -51,14 +51,14 @@ public class HistorialController {
     }
 
     //Modificar
-    @PutMapping("{idHistorial}")
+    @PutMapping("{id}")
     public  ResponseEntity<HistorialDto> modificarHistorial
     (@PathVariable Long id, @RequestBody ModHistorialDto modHistorialDto){
         return ResponseEntity.ok(this.historialService.modificarHistorial(id, modHistorialDto));
     }
 
     //Eliminar
-    @DeleteMapping("{idHistorial}")
+    @DeleteMapping("{id}")
     public ResponseEntity<Void> eliminarHisotrial(@PathVariable Long id){
         this.historialService.eliminarHistorial(id);
         return ResponseEntity.ok().build();

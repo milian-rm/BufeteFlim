@@ -35,8 +35,8 @@ public class ParteEntityRepository implements ParteRepository {
 
     @Override
     public ParteDto guardarParte(ParteDto parteDto) {
-        if(this.crudParteEntity.findFirstByNombre(parteDto.name()) != null){
-            throw new ParteYaExisteException(parteDto.name());
+        if(this.crudParteEntity.findFirstByDpi(parteDto.dpi()) != null){
+            throw new ParteYaExisteException(parteDto.dpi());
         }
 
         //Creamos un objeto ParteEntity

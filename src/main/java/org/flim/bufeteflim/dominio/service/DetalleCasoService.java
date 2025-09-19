@@ -2,13 +2,16 @@ package org.flim.bufeteflim.dominio.service;
 
 import org.flim.bufeteflim.dominio.repository.DetalleCasoRepository;
 import org.flim.bufeteflim.dominio.dto.*;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class DetalleCasoService {
+
     private final DetalleCasoRepository detalleCasoRepository;
 
-    public DetalleCasoRepository(DetalleCasoRepository detalleCasoRepository){
+    public DetalleCasoService(DetalleCasoRepository detalleCasoRepository){
         this.detalleCasoRepository = detalleCasoRepository;
     }
 
@@ -28,7 +31,7 @@ public class DetalleCasoService {
         return this.detalleCasoRepository.modificarDetalleCaso(id, modDetalleCasoDto);
     }
 
-    public void eliminarPelicula(Long id){
+    public void eliminarDetalleCaso(Long id){
         this.detalleCasoRepository.eliminarDetalleCaso(id);
     }
 }
