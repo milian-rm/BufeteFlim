@@ -8,9 +8,11 @@ import org.flim.bufeteflim.dominio.repository.EventoRepository;
 import org.flim.bufeteflim.persistence.crud.CrudEventoEntity;
 import org.flim.bufeteflim.persistence.entity.EventoEntity;
 import org.flim.bufeteflim.persistence.mapper.EventoMapper;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
 public class EventoEntityRepository implements EventoRepository {
 
     private final CrudEventoEntity crudEventoEntity;

@@ -10,11 +10,11 @@ public class EventTypeMapper {
         if (eventTypeString == null) return null;
 
         return switch (eventTypeString.toUpperCase()) {
-            case "AUDIENCE" -> EventType.AUDIENCE;
-            case "ORAL_DEBATE" -> EventType.ORAL_DEBATE;
-            case "JUDICIAL_RECOGNITION" -> EventType.JUDICIAL_RECOGNITION;
-            case "EVICTION" -> EventType.EVICTION;
-            case "OTHER" -> EventType.OTHER;
+            case "AUDIENCIA" -> EventType.AUDIENCE;
+            case "DEBATE_ORAL" -> EventType.ORAL_DEBATE;
+            case "RECONOCIMIENTO_JUDICIAL" -> EventType.JUDICIAL_RECOGNITION;
+            case "DESALOJO" -> EventType.EVICTION;
+            case "OTRO" -> EventType.OTHER;
 
             default -> null;
         };
@@ -25,11 +25,11 @@ public class EventTypeMapper {
         if (eventType == null) return null;
 
         return switch (eventType) {
-            case AUDIENCE -> "AUDIENCE";
-            case ORAL_DEBATE -> "ORAL_DEBATE";
-            case JUDICIAL_RECOGNITION -> "JUDICIAL_RECOGNITION";
-            case EVICTION -> "EVICTION";
-            case OTHER -> "OTHER";
+            case AUDIENCE -> "AUDIENCIA";
+            case ORAL_DEBATE -> "DEBATE_ORAL";
+            case JUDICIAL_RECOGNITION -> "RECONOCIMIENTO_JUDICIAL";
+            case EVICTION -> "DESALOJO";
+            case OTHER -> "OTRO";
             default -> null;
         };
     }

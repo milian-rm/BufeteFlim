@@ -3,9 +3,11 @@ package org.flim.bufeteflim.dominio.service;
 import org.flim.bufeteflim.dominio.dto.EventoDto;
 import org.flim.bufeteflim.dominio.dto.ModEventoDto;
 import org.flim.bufeteflim.dominio.repository.EventoRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class EventoService {
 
     private final EventoRepository eventoRepository;
@@ -15,7 +17,7 @@ public class EventoService {
     }
 
     public List<EventoDto> obtenerTodo() {
-        return this.eventoRepository.obtenertodo();
+        return this.eventoRepository.obtenerTodo();
     }
 
     public EventoDto buscarPorCodigo(Long id){
