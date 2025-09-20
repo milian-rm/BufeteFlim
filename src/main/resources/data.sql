@@ -38,3 +38,10 @@ INSERT IGNORE gestiones (tipo, descripcion, fecha_creacion, fecha_vencimiento, e
 ('MEMORIAL', 'Sesión de mediación entre las partes', '2025-09-10', '2025-09-25', 'PENDIENTE', 'El cliente aún no confirma asistencia', 3, 4, 3),
 ('ASESORIA', 'Interposición de recurso de apelación', '2025-07-30', '2025-09-30', 'COMPLETADA', 'Resolución favorable al cliente', 4, 2, 1),
 ('QUERELLA', 'Revisión de expediente y asesoría legal', '2025-09-18', '2025-09-18', 'COMPLETADA', 'Se entregó informe escrito al cliente', 5, 5, 4);
+
+INSERT IGNORE INTO documentos (nombre, tipo_documento, id_caso) VALUES
+('Contrato de Arrendamiento', 'JUDICIAL', 1),
+('Escritura Pública', 'CONTRACTUAL', 2),
+('Testamento', 'ADMINISTRATIVO', 3),
+('Acta Notarial', 'CONTRACTUAL', 4),
+('Cédula de Notificación', 'JUDICIAL', 5);
