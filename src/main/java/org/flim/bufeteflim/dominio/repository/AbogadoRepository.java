@@ -10,6 +10,7 @@ public interface AbogadoRepository {
     
     List<AbogadoDto> obtenerTodo();
     public AbogadoDto buscarPorId(Long idAbogado);
+    AbogadoDto buscarPorNombre(String nombre);
     AbogadoDto guardarAbogado(AbogadoDto abogadoDto);
     AbogadoDto modificarAbogado(Long idAbogado, ModAbogadoDto modAbogado);
     void eliminarAbogado(Long id);

@@ -7,6 +7,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import org.flim.bufeteflim.dominio.dto.AbogadoDto;
+import org.flim.bufeteflim.dominio.dto.GestionDto;
 import org.flim.bufeteflim.dominio.dto.ModAbogadoDto;
 import org.flim.bufeteflim.dominio.service.AbogadoService;
 import org.springframework.http.HttpStatus;
@@ -49,6 +50,22 @@ public class AbogadoController {
             (@Parameter(description = "Identificador de la parte a recuperar", example = "3")
              @PathVariable Long id){
         return ResponseEntity.ok(this.abogadoService.buscarPorId(id));
+    }
+
+    //Busca el abogado por su nombre
+    @GetMapping("nombre/{nombre}")
+    @Operation(
+            summary = "Obtener un abogado por su Nombre",
+            description = "Retorna el abogado que coincida con el Nombre solicitado",
+            responses = {
+                    @ApiResponse(responseCode = "200", description = "Abogado No Encontrada"),
+                    @ApiResponse(responseCode = "404", description = "Abogado No Encontrada", content = @Content)
+            }
+    )
+    public ResponseEntity<AbogadoDto> buscarPorNombre
+    (@Parameter(description = "Nombre del abogado a recuperar", example = "Juan")
+     @PathVariable String nombre){
+        return ResponseEntity.ok(this.abogadoService.buscarPorNombre(nombre));
     }
 
     //Crear - Agregar
