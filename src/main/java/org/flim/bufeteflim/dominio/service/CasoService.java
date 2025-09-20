@@ -23,6 +23,10 @@ public class CasoService {
         return this.casoRepository.buscarPorId(id);
     }
 
+    public List<CasoDto> buscarPorEstado(String estado){
+        return this.casoRepository.buscarPorEstado(estado);
+    }
+
     public CasoDto guardarCaso(CasoDto casoDto){
         return this.casoRepository.guardarCaso(casoDto);
     }
