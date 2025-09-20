@@ -20,7 +20,7 @@ public interface EventoMapper {
     @Mapping(source = "idHistorial", target = "idHistory")
     EventoDto toDto(EventoEntity eventoEntity);
 
-    List<EventoDto> toDtos(Iterable<EventoEntity> entities);
+    List<EventoDto> toDto(Iterable<EventoEntity> entities);
 
     @InheritInverseConfiguration
     @Mapping(source = "type", target = "tipo", qualifiedByName = "generarTipoEvento")

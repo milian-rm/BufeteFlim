@@ -6,7 +6,7 @@ import org.flim.bufeteflim.dominio.dto.ModEventoDto;
 import java.util.List;
 
 public interface EventoRepository {
-    List<EventoDto> obtenertodo();
+    List<EventoDto> obtenerTodo();
     EventoDto buscarPorCodigo(Long id);
     EventoDto guardarEvento(EventoDto eventoDto);
     EventoDto modificarEvento(Long id, ModEventoDto modEventoDto);
