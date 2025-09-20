@@ -2,6 +2,8 @@ package org.flim.bufeteflim.persistence;
 
 import org.flim.bufeteflim.dominio.dto.EventoDto;
 import org.flim.bufeteflim.dominio.dto.ModEventoDto;
+import org.flim.bufeteflim.dominio.exception.EventoNoExisteException;
+import org.flim.bufeteflim.dominio.exception.EventoYaExisteException;
 import org.flim.bufeteflim.dominio.repository.EventoRepository;
 import org.flim.bufeteflim.persistence.crud.CrudEventoEntity;
 import org.flim.bufeteflim.persistence.entity.EventoEntity;
@@ -32,7 +34,7 @@ public class EventoEntityRepository implements EventoRepository {
     @Override
     public EventoDto guardarEvento(EventoDto eventoDto) {
         if(this.crudEventoEntity.findFirstByCodigo(eventoDto.codeEvent()) != null) {
-            //throw new EventoYaExisteException(eventoDto.codeEvent());
+            throw new EventoYaExisteException(eventoDto.codeEvent());
         }
 
         EventoEntity evento = new EventoEntity();
@@ -49,7 +51,7 @@ public class EventoEntityRepository implements EventoRepository {
         EventoEntity evento = this.crudEventoEntity.findById(codeEvent).orElse(null);
 
         if(evento == null){
-            //throw new EventoNoExisteException(codeEvent);
+            throw new EventoNoExisteException(codeEvent);
         }
         this.eventoMapper.modificarEntityFromDto(modEventoDto, evento);
 
@@ -61,7 +63,7 @@ public class EventoEntityRepository implements EventoRepository {
         EventoEntity evento = this.crudEventoEntity.findById(codeEvent).orElse(null);
 
         if(evento == null){
-            //throw new EventoNoExisteException(codeEvent);
+            throw new EventoNoExisteException(codeEvent);
         }else{
             this.crudEventoEntity.deleteById(codeEvent);
         }
