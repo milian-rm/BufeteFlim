@@ -30,7 +30,7 @@ public class EventoService {
         return this.eventoRepository.modificarEvento(id, modEventoDto);
     }
 
-    public void eliminarDetalleCaso(Long id) {
+    public void eliminarEvento(Long id) {
         this.eventoRepository.eliminarEvento(id);
     }
 }
