@@ -19,11 +19,11 @@ INSERT IGNORE Casos (titulo, descripcion, fecha_inicio, fecha_cierre, estado, ti
 ('Caso de Fraude', 'Investigación de fraude financiero en empresa.', '2024-03-01', '2024-09-10', 'ARCHIVADO', 'FAMILIA');
 
 INSERT IGNORE detalles_caso(id_parte, id_caso, rol_en_caso) VALUES
-(1, 1, 'ATTORNEY'),
-(2, 2, 'COUNTERPARTY'),
-(3, 3, 'OTHER'),
-(4, 4, 'COUNTERPARTY'),
-(5, 5, 'COUNTERPARTY');
+(1, 1, 'Cliente'),
+(2, 2, 'Contraparte'),
+(3, 3, 'Otro'),
+(4, 4, 'Contraparte'),
+(5, 5, 'Contraparte');
 
 INSERT IGNORE historiales(descripcion, id_abogado, id_caso) VALUES
 ('Se presenta la demanda en el tribunal', 1, 5),
@@ -31,6 +31,19 @@ INSERT IGNORE historiales(descripcion, id_abogado, id_caso) VALUES
 ('Se adjuntan nuevas pruebas al expediente del caso', 1, 3),
 ('El juez emite una orden de restricción temporal', 2, 2),
 ('Revisión de testimonios de los testigos clave', 3, 1);
+
+INSERT IGNORE eventos(tipo, id_caso, id_abogado, id_historial) VALUES
+('AUDIENCIA', 1, 1, 1),
+('DEBATE_ORAL', 2, 2, 2),
+('RECONOCIMIENTO_JUDICIAL', 3, 3, 3),
+('DESALOJO', 1, 2, 3),
+('OTRO', 3, 2, 1);
+
+INSERT IGNORE insumos(descripcion, cantidad, costo_unitario, costo) VALUES
+('Se adquirieron rollos de papel para los baños', 6, 5.50, 6*5.50),
+('Se adquirieron baterías para los controles de TV de la Sala de Espera', 12, 7.35, 12*7.35),
+('Se adquirió un Nuevo Escritorio para el Practicante Roberto Milián', 1, 750.99, 750.99),
+('Se adquirió una cubeta de pintura para la Sala de Juntas', 1, 899.99, 899.99);
 
 INSERT IGNORE gestiones (tipo, descripcion, fecha_creacion, fecha_vencimiento, estado, observaciones, id_caso, id_abogado, id_historial) VALUES
 ('DEMANDA', 'Presentación de demanda civil por incumplimiento de contrato', '2025-09-01', '2025-10-01', 'PENDIENTE', 'Se entregaron documentos al juzgado', 1, 3, 5),
