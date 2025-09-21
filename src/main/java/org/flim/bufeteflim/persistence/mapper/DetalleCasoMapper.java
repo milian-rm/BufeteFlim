@@ -18,13 +18,13 @@ public interface DetalleCasoMapper {
     @Mapping(source = "idParte", target = "idComponent")
     @Mapping(source = "idCaso", target = "idCase")
     @Mapping(source = "rolEnCaso", target = "role")
-    DetalleCasoDto toDto(DetalleCasoEntity parteEntity);
+    DetalleCasoDto toDto(DetalleCasoEntity detalleEntity);
 
     List<DetalleCasoDto> toDto(Iterable<DetalleCasoEntity> entities);
 
     @InheritInverseConfiguration
     @Mapping(source = "role", target = "rolEnCaso", qualifiedByName = "generarRol")
-    DetalleCasoEntity toEntity(DetalleCasoDto parteDto);
+    DetalleCasoEntity toEntity(DetalleCasoDto detalleDto);
 
     @Mapping(source = "idComponent", target = "idParte")
     @Mapping(source = "idCase", target = "idCaso")
