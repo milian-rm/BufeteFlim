@@ -24,6 +24,9 @@ public class InsumoService {
     }
 
     public InsumoDto guardarInsumo(InsumoDto insumoDto) {
+        Double costo = insumoDto.unitaryCost()*insumoDto.cuantity();
+
+
         return this.insumoRepository.guardarInsumo(insumoDto);
     }
 

@@ -17,5 +17,5 @@ public class InsumoEntity {
     @Column
     private Double costoUnitario;
     @Column
-    private Double costo = cantidad * costoUnitario;
+    private Double costo;
 }
