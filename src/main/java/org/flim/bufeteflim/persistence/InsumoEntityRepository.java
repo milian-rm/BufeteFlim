@@ -2,6 +2,8 @@ package org.flim.bufeteflim.persistence;
 
 import org.flim.bufeteflim.dominio.dto.InsumoDto;
 import org.flim.bufeteflim.dominio.dto.ModInsumoDto;
+import org.flim.bufeteflim.dominio.exception.InsumoNoExisteException;
+import org.flim.bufeteflim.dominio.exception.InsumoYaExisteException;
 import org.flim.bufeteflim.dominio.repository.InsumoRepository;
 import org.flim.bufeteflim.persistence.crud.CrudInsumoEntity;
 import org.flim.bufeteflim.persistence.entity.InsumoEntity;
@@ -33,7 +35,7 @@ public class InsumoEntityRepository implements InsumoRepository{
     @Override
     public InsumoDto guardarInsumo(InsumoDto insumoDto) {
         if(this.crudInsumoEntity.findFirstByCodigo(insumoDto.codeSupply()) != null) {
-            //throw new InsumoYaExisteException(insumoDto.codeSupply());
+            throw new InsumoYaExisteException(insumoDto.codeSupply());
         }
 
         InsumoEntity insumo = new InsumoEntity();
@@ -50,7 +52,7 @@ public class InsumoEntityRepository implements InsumoRepository{
         InsumoEntity insumo = this.crudInsumoEntity.findById(codeSupply).orElse(null);
 
         if(insumo == null){
-            //throw new InsumoNoExisteException(codeSupply);
+            throw new InsumoNoExisteException(codeSupply);
         }
         this.insumoMapper.modificarEntityFromDto(modInsumoDto, insumo);
 
@@ -62,7 +64,7 @@ public class InsumoEntityRepository implements InsumoRepository{
         InsumoEntity insumo = this.crudInsumoEntity.findById(codeSupply).orElse(null);
 
         if(insumo == null){
-            //throw new InsumoNoExisteException(codeSupply);
+            throw new InsumoNoExisteException(codeSupply);
         }else{
             this.crudInsumoEntity.deleteById(codeSupply);
         }
