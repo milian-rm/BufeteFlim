@@ -1,7 +1,11 @@
 package org.flim.bufeteflim.persistence.mapper;
 
+import org.flim.bufeteflim.dominio.dto.AbogadoDto;
+import org.flim.bufeteflim.dominio.dto.CasoDto;
 import org.flim.bufeteflim.dominio.dto.HistorialDto;
 import org.flim.bufeteflim.dominio.dto.ModHistorialDto;
+import org.flim.bufeteflim.persistence.entity.AbogadoEntity;
+import org.flim.bufeteflim.persistence.entity.CasoEntity;
 import org.flim.bufeteflim.persistence.entity.HistorialEntity;
 import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;
@@ -10,7 +14,7 @@ import org.mapstruct.MappingTarget;
 
 import java.util.List;
 
-@Mapper(componentModel = "spring")
+@Mapper(componentModel = "spring", uses = {CasoMapper.class, AbogadoMapper.class})
 public interface HistorialMapper {
 
     @Mapping(source = "idHistorial", target = "code")
@@ -22,10 +26,31 @@ public interface HistorialMapper {
     List<HistorialDto> toDto(Iterable<HistorialEntity> entities);
 
     @InheritInverseConfiguration
+    @Mapping(target = "idAbogado", expression = "java(abogadoFromDto(dto.idLawyer()))")
+    @Mapping(target = "idCaso", expression = "java(casoFromDto(dto.idCase()))")
     HistorialEntity toEntity(HistorialDto dto);
 
     @Mapping(source = "description", target = "descripcion")
-    @Mapping(source = "idLawyer", target = "idAbogado")
-    @Mapping(source = "idCase", target = "idCaso")
+    @Mapping(target = "idAbogado", expression = "java(abogadoFromDto(mod.idLawyer()))")
+    @Mapping(target = "idCaso", expression = "java(casoFromDto(mod.idCase()))")
     void modificarEntityFromDto(ModHistorialDto mod, @MappingTarget HistorialEntity entity);
+
+    default CasoEntity casoFromDto(CasoDto dto) {
+        if (dto == null || dto.idCaso() == null) {
+            return null;
+        }
+        CasoEntity caso = new CasoEntity();
+        caso.setIdCaso(dto.idCaso());
+        return caso;
+    }
+
+    default AbogadoEntity abogadoFromDto(AbogadoDto dto) {
+        if (dto == null || dto.idAbogado() == null) {
+            return null;
+        }
+        AbogadoEntity abogado = new AbogadoEntity();
+        abogado.setIdAbogado(dto.idAbogado());
+        return abogado;
+    }
+
 }

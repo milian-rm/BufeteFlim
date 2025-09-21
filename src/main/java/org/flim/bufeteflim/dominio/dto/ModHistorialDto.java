@@ -9,7 +9,7 @@ import java.time.LocalDate;
 public record ModHistorialDto(
         Long code,
         String description,
-        Long idLawyer,
-        Long idCase
+        AbogadoDto idLawyer,
+        CasoDto idCase
 ) {
 }

@@ -7,7 +7,7 @@ public record HistorialDto(
         Long code,
         @NotBlank(message = "La descripcion es obligatoria")
         String description,
-        Long idLawyer,
-        Long idCase
+        AbogadoDto idLawyer,
+        CasoDto idCase
 ) {
 }
