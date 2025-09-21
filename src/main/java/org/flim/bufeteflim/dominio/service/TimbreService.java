@@ -5,11 +5,15 @@ import org.flim.bufeteflim.dominio.dto.TimbreDto;
 import org.flim.bufeteflim.dominio.repository.TimbreRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class TimbreService {
     private final TimbreRepository timbreRepository;
 
     public TimbreService(TimbreRepository timbreRepository) {this.timbreRepository = timbreRepository;}
+
+    public List<TimbreDto> obtenerTodo(){ return this.timbreRepository.obtenerTodo();}
 
     public TimbreDto buscarPorNo(Long noRing){return this.timbreRepository.buscarPorNo(noRing);}
 

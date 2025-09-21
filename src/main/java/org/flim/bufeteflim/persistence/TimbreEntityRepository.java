@@ -45,7 +45,6 @@ public class TimbreEntityRepository implements TimbreRepository {
         this.crudTimbreEntity.save(timbre);
         //Retornamos como CasoDto
         return this.timbreMapper.toDto(timbre);
-        return null;
     }
 
     @Override
