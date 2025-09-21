@@ -1,12 +1,13 @@
 package org.flim.bufeteflim.persistence.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import lombok.Data;
 
 import java.time.LocalDate;
 
+@Entity
+@Table(name = "detalles_caso")
+@Data
 public class DetalleCasoEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

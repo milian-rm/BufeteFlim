@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.flim.bufeteflim.dominio.dto.HistorialDto;
 import org.flim.bufeteflim.dominio.dto.ModHistorialDto;
+import org.flim.bufeteflim.dominio.exception.DetalleCasoNoExisteException;
 import org.flim.bufeteflim.dominio.repository.HistorialRepository;
 import org.flim.bufeteflim.persistence.crud.CrudHistorialEntity;
 import org.flim.bufeteflim.persistence.entity.HistorialEntity;
@@ -46,10 +47,10 @@ public class HistorialEntityRepository implements HistorialRepository{
     @Override
     public HistorialDto modificarHistorial(Long id, ModHistorialDto modHistorial) {
         HistorialEntity historial = this.crudHistorialEntity.findById(id).orElse(null);
-        /*
-         * Aqui iria la excepción
-         */
 
+        if (historial == null){
+            throw new DetalleCasoNoExisteException(id);
+        }
          this.historialMapper.modificarEntityFromDto(modHistorial, historial);
 
          return this.historialMapper.toDto(this.crudHistorialEntity.save(historial));

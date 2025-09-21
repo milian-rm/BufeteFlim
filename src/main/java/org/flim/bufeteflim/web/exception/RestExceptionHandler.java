@@ -5,6 +5,7 @@ import org.flim.bufeteflim.dominio.exception.Error;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -57,6 +58,30 @@ public class RestExceptionHandler {
     @ExceptionHandler(CasoNoExisteExeption.class)
     public ResponseEntity<Error> handleException(CasoNoExisteExeption ex){
         Error error = new Error("caso-no-existe", ex.getMessage());
+        return ResponseEntity.badRequest().body(error);
+    }
+
+    @ExceptionHandler(GestionYaExisteException.class)
+    public ResponseEntity<Error> handleException(GestionYaExisteException ex){
+        Error error = new Error("gestion-ya-existe", ex.getMessage());
+        return ResponseEntity.badRequest().body(error);
+    }
+
+    @ExceptionHandler(GestionNoExisteException.class)
+    public ResponseEntity<Error> handleException(GestionNoExisteException ex){
+        Error error = new Error("gestion-no-existe", ex.getMessage());
+        return ResponseEntity.badRequest().body(error);
+    }
+
+    @ExceptionHandler(DocumentoYaExisteException.class)
+    public ResponseEntity<Error> handleException(DocumentoYaExisteException ex){
+        Error error = new Error("documento-ya-existe", ex.getMessage());
+        return ResponseEntity.badRequest().body(error);
+    }
+
+    @ExceptionHandler(DocumentoNoExisteException.class)
+    public ResponseEntity<Error> handleException(DocumentoNoExisteException ex){
+        Error error = new Error("documento-no-existe", ex.getMessage());
         return ResponseEntity.badRequest().body(error);
     }
 

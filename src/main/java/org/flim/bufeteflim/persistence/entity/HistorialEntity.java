@@ -11,7 +11,7 @@ public class HistorialEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idHistorial;
-    @Column(length = 250, nullable = false)
+    @Column(length = 250)
     private String descripcion;
     @Column
     private Long idAbogado;

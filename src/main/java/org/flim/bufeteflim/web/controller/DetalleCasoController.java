@@ -19,8 +19,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/v1/detallescasos")
-@Tag(name = "DetallesCasos", description = "Operaciones Crud para DetallesCasos dentro de BufeteFlim")
+@RequestMapping("/v1/detallescaso")
+@Tag(name = "DetallesCaso", description = "Operaciones Crud para DetallesCasos dentro de BufeteFlim")
 public class DetalleCasoController {
     private final DetalleCasoService detalleCasoService;
 
@@ -31,7 +31,7 @@ public class DetalleCasoController {
         return ResponseEntity.ok(this.detalleCasoService.obtenerTodo());
     }
 
-    @GetMapping("{codigo}")
+    @GetMapping("{id}")
     @Operation(
             summary = "Obtener una parte por su identificador",
             description = "Retorna la parte que coincida con el identificador enviado",
@@ -55,14 +55,14 @@ public class DetalleCasoController {
     }
 
     //Modificar
-    @PutMapping("{codigo}")
+    @PutMapping("{id}")
     public ResponseEntity<DetalleCasoDto> modificarDetalleCaso
     (@PathVariable Long id, @RequestBody ModDetalleCasoDto modDetalleCasoDto){
         return ResponseEntity.ok(this.detalleCasoService.modificarDetalleCaso(id, modDetalleCasoDto));
     }
 
     //Eliminar
-    @DeleteMapping("{codigo}")
+    @DeleteMapping("{id}")
     public ResponseEntity<Void> eliminarDetalleCaso(@PathVariable Long id){
         this.detalleCasoService.eliminarDetalleCaso(id);
         return ResponseEntity.ok().build();

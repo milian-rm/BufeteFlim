@@ -13,7 +13,7 @@ import java.util.List;
 @Mapper(componentModel = "spring")
 public interface HistorialMapper {
 
-
+    @Mapping(source = "idHistorial", target = "code")
     @Mapping(source = "descripcion", target = "description")
     @Mapping(source = "idAbogado", target = "idLawyer")
     @Mapping(source = "idCaso", target = "idCase")
@@ -24,5 +24,8 @@ public interface HistorialMapper {
     @InheritInverseConfiguration
     HistorialEntity toEntity(HistorialDto dto);
 
+    @Mapping(source = "description", target = "descripcion")
+    @Mapping(source = "idLawyer", target = "idAbogado")
+    @Mapping(source = "idCase", target = "idCaso")
     void modificarEntityFromDto(ModHistorialDto mod, @MappingTarget HistorialEntity entity);
 }
