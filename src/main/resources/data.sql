@@ -58,3 +58,8 @@ INSERT IGNORE INTO documentos (nombre, tipo_documento, id_caso) VALUES
 ('Testamento', 'ADMINISTRATIVO', 3),
 ('Acta Notarial', 'CONTRACTUAL', 4),
 ('Cédula de Notificación', 'JUDICIAL', 5);
+
+INSERT IGNORE INTO timbres (tipo_timbre, id_abogado) VALUES
+('NOTARIAL', 1),
+('FISCAL', 2),
+('FORENSE', 1);
