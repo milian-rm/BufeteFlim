@@ -1,8 +1,9 @@
 package org.flim.bufeteflim.dominio.dto;
 
-import jakarta.validation.constraints.Min;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import jakarta.validation.constraints.NotBlank;
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public record HistorialDto(
         Long code,
         @NotBlank(message = "La descripcion es obligatoria")
