@@ -12,7 +12,7 @@ public class TimbreEntity {
     private Long noTimbre;
 
     @Column(length = 10, nullable = false)
-    private String tipo;
+    private String tipoTimbre;
 
     //Llave foranea
     @Column

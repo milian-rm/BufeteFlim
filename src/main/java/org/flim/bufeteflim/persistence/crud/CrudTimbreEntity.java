@@ -4,5 +4,5 @@ import org.flim.bufeteflim.persistence.entity.TimbreEntity;
 import org.springframework.data.repository.CrudRepository;
 
 public interface CrudTimbreEntity extends CrudRepository<TimbreEntity, Long> {
-    TimbreEntity findFirstByNoRing(Long noRing);
+    TimbreEntity findFirstByNoTimbre(Long noRing);
 }

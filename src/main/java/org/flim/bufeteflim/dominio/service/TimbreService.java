@@ -15,15 +15,15 @@ public class TimbreService {
 
     public List<TimbreDto> obtenerTodo(){ return this.timbreRepository.obtenerTodo();}
 
-    public TimbreDto buscarPorNo(Long noRing){return this.timbreRepository.buscarPorNo(noRing);}
+    public TimbreDto buscarPorNo(Long noTimbre){return this.timbreRepository.buscarPorNo(noTimbre);}
 
     public TimbreDto guardarTimbre(TimbreDto timbreDto){
         return this.timbreRepository.guardarTimbre(timbreDto);
     }
 
-    public TimbreDto modificarTimbre(Long noRing, ModTimbreDto modTimbreDto){
-        return this.timbreRepository.modificarTimbre(noRing, modTimbreDto);
+    public TimbreDto modificarTimbre(Long noTimbre, ModTimbreDto modTimbreDto){
+        return this.timbreRepository.modificarTimbre(noTimbre, modTimbreDto);
     }
 
-    public void eliminarTimbre(Long noRing){ this.timbreRepository.eliminarTimbre(noRing);}
+    public void eliminarTimbre(Long noTimbre){ this.timbreRepository.eliminarTimbre(noTimbre);}
 }

@@ -12,17 +12,18 @@ import java.util.List;
 
 @Mapper(componentModel = "spring", uses = {RingTypeMapper.class})
 public interface TimbreMapper {
-    @Mapping(source = "tipo", target = "type", qualifiedByName = "generarRingType")
+    @Mapping(source = "noTimbre", target = "noRing")
+    @Mapping(source = "tipoTimbre", target = "ringType", qualifiedByName = "generarRingType")
     @Mapping(source = "idAbogado", target = "idLawyer")
     TimbreDto toDto(TimbreEntity entity);
 
     List<TimbreDto> toDto(Iterable<TimbreEntity> entities);
 
     @InheritInverseConfiguration
-    @Mapping(source = "type", target = "tipo", qualifiedByName = "generarTipoTimbre")
+    @Mapping(source = "ringType", target = "tipoTimbre", qualifiedByName = "generarTipoTimbre")
     TimbreEntity toEntity(TimbreDto dto);
 
-    @Mapping(source = "type", target = "tipo", qualifiedByName = "generarTipoTimbre")
+    @Mapping(source = "ringType", target = "tipoTimbre", qualifiedByName = "generarTipoTimbre")
     @Mapping(source = "idLawyer", target = "idAbogado")
     void modificarEntityFromDto(ModTimbreDto mod, @MappingTarget TimbreEntity entity);
 }

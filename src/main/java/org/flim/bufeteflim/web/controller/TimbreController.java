@@ -31,7 +31,7 @@ public class TimbreController {
     }
 
     //Buscar Por No.
-    @GetMapping("{noRing}")
+    @GetMapping("{noTimbre}")
     @Operation(
             summary = "Obtener una parte por su identificador",
             description = "Retorna la parte que coincida con el identificador enviado",
@@ -42,8 +42,8 @@ public class TimbreController {
     )
     public ResponseEntity<TimbreDto> buscarPorNo
             (@Parameter(description = "Identificar a la parte a recuperar" , example = "3")
-             @PathVariable Long noRing){
-        return ResponseEntity.ok(this.timbreService.buscarPorNo(noRing));
+             @PathVariable Long noTimbre){
+        return ResponseEntity.ok(this.timbreService.buscarPorNo(noTimbre));
     }
 
     //Crear - Agregar
@@ -55,16 +55,16 @@ public class TimbreController {
     }
 
     //Modificar
-    @PutMapping("{noRing}")
+    @PutMapping("{noTimbre}")
     public ResponseEntity<TimbreDto> modificarTimbre
-    (@PathVariable("noRing") Long noRing, @RequestBody ModTimbreDto modTimbreDto){
-        return ResponseEntity.ok(this.timbreService.modificarTimbre(noRing, modTimbreDto));
+    (@PathVariable("noTimbre") Long noTimbre, @RequestBody ModTimbreDto modTimbreDto){
+        return ResponseEntity.ok(this.timbreService.modificarTimbre(noTimbre, modTimbreDto));
     }
 
     //Eliminar
-    @DeleteMapping("{noRing}")
-    public ResponseEntity<Void> eliminarTimbre(@PathVariable Long noRing){
-        this.timbreService.eliminarTimbre(noRing);
+    @DeleteMapping("{noTimbre}")
+    public ResponseEntity<Void> eliminarTimbre(@PathVariable Long noTimbre){
+        this.timbreService.eliminarTimbre(noTimbre);
         return ResponseEntity.ok().build();
     }
 }

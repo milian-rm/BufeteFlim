@@ -8,9 +8,11 @@ import org.flim.bufeteflim.dominio.repository.TimbreRepository;
 import org.flim.bufeteflim.persistence.crud.CrudTimbreEntity;
 import org.flim.bufeteflim.persistence.entity.TimbreEntity;
 import org.flim.bufeteflim.persistence.mapper.TimbreMapper;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
 public class TimbreEntityRepository implements TimbreRepository {
 
     private final CrudTimbreEntity crudTimbreEntity;
@@ -27,16 +29,19 @@ public class TimbreEntityRepository implements TimbreRepository {
     }
 
     @Override
-    public TimbreDto buscarPorNo(Long noRing) {
-        return this.timbreMapper.toDto(this.crudTimbreEntity.findById(noRing).orElse(null));
+    public TimbreDto buscarPorNo(Long noTimbre) {
+        return this.timbreMapper.toDto(this.crudTimbreEntity.findById(noTimbre).orElse(null));
     }
 
     @Override
     public TimbreDto guardarTimbre(TimbreDto timbreDto) {
-        if (this.crudTimbreEntity.findFirstByNoRing(timbreDto.noRing()) != null){
+
+        /*
+        no podes validad una llave primaria auto incrementable pq siempre va a mandar en postman como nula
+        if (this.crudTimbreEntity.findFirstByNoTimbre(timbreDto.noRing()) != null){
             throw new TimbreYaExisteException(timbreDto.noRing());
         }
-
+        */
         //Creamos el objeto TimbreEntity
         TimbreEntity timbre = new TimbreEntity();
         //Convertimos a TimbreEntity el objeto TimbreDto
@@ -48,11 +53,11 @@ public class TimbreEntityRepository implements TimbreRepository {
     }
 
     @Override
-    public TimbreDto modificarTimbre(Long noRing, ModTimbreDto modTimbreDto) {
-        TimbreEntity timbre = this.crudTimbreEntity.findById(noRing).orElse(null);
+    public TimbreDto modificarTimbre(Long noTimbre, ModTimbreDto modTimbreDto) {
+        TimbreEntity timbre = this.crudTimbreEntity.findById(noTimbre).orElse(null);
         //Exepciones
         if (timbre == null){
-            throw new TimbreNoExisteExeption(noRing);
+            throw new TimbreNoExisteExeption(noTimbre);
         }
         this.timbreMapper.modificarEntityFromDto(modTimbreDto, timbre);
 
@@ -60,13 +65,13 @@ public class TimbreEntityRepository implements TimbreRepository {
     }
 
     @Override
-    public void eliminarTimbre(Long noRing) {
-        TimbreEntity timbre = this.crudTimbreEntity.findById(noRing).orElse(null);
+    public void eliminarTimbre(Long noTimbre) {
+        TimbreEntity timbre = this.crudTimbreEntity.findById(noTimbre).orElse(null);
 
         if (timbre == null){
-            throw new TimbreNoExisteExeption(noRing);
+            throw new TimbreNoExisteExeption(noTimbre);
         }else{
-            this.crudTimbreEntity.deleteById(noRing);
+            this.crudTimbreEntity.deleteById(noTimbre);
         }
     }
 }

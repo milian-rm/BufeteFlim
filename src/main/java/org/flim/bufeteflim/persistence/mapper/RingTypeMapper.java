@@ -16,4 +16,16 @@ public class RingTypeMapper {
             default -> null;
         };
     }
+
+    @Named("generarTipoTimbre")
+    public static String generarTipoTimbre(RingType ringType){
+        if (ringType == null) return null;
+
+        return switch (ringType){
+            case RingType.FORENSIC -> "FORENSE";
+            case RingType.NOTARIAL -> "NOTARIAL";
+            case RingType.FISCAL -> "FISCAL";
+            default -> null;
+        };
+    }
 }
