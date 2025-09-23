@@ -7,7 +7,7 @@ public record TimbreDto(
         Long noRing,
         @NotBlank(message = "El tipo de Timbre es obligatorio.")
         String ringType,
-        @NotNull(message = "El id del Abogado  es obligatorio")
-        Long idLawyer
+        @NotNull(message = "El Abogado es obligatorio")
+        AbogadoDto abogadoDto
 ) {
 }

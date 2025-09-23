@@ -34,6 +34,11 @@ public class CasoEntityRepository implements CasoRepository {
     }
 
     @Override
+    public List<CasoDto> buscarPorEstado(String estado) {
+        return this.casoMapper.toDto(this.crudCasoEntity.findByEstado(estado));
+    }
+
+    @Override
     public CasoDto guardarCaso(CasoDto casoDto) {
         if (this.crudCasoEntity.findFirstByTitulo(casoDto.title()) != null){
             throw new CasoYaExisteException(casoDto.title());

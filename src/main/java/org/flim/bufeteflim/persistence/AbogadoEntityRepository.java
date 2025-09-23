@@ -33,6 +33,11 @@ public class AbogadoEntityRepository implements AbogadoRepository {
         return this.abogadoMapper.toDto(this.crudAbogadoEntity.findById(id).orElse(null));
     }
 
+    @Override
+    public AbogadoDto buscarPorNombre(String nombre) {
+        return this.abogadoMapper.toDto(this.crudAbogadoEntity.findFirstByNombre(nombre));
+    }
+
     //Falta AbogadoYaExisteExeption
     @Override
     public AbogadoDto guardarAbogado(AbogadoDto abogadoDto) {

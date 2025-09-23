@@ -45,6 +45,22 @@ public class CasoController {
         return ResponseEntity.ok(this.casoService.buscarPorId(idCaso));
     }
 
+    //Buscar Casos por sus estados
+    @GetMapping("estado/{estado}")
+    @Operation(
+            summary = "Obtener un Caso por su estado",
+            description = "Retorna los Casos que coincidan con el estado enviado",
+            responses = {
+                    @ApiResponse(responseCode = "200", description = "Caso encontrado"),
+                    @ApiResponse(responseCode = "404", description = "Caso no encontrado", content = @Content)
+            }
+    )
+    public ResponseEntity<List<CasoDto>> buscarPorEstado
+            (@Parameter(description = "Estado del Caso a recuperar", example = "Suspendido")
+             @PathVariable String estado){
+        return ResponseEntity.ok(this.casoService.buscarPorEstado(estado));
+    }
+
     //Crear - agregar
     @PostMapping
     public ResponseEntity<CasoDto> guardarCaso

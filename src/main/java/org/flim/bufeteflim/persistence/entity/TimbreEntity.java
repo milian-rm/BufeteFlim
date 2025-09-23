@@ -15,6 +15,7 @@ public class TimbreEntity {
     private String tipoTimbre;
 
     //Llave foranea
-    @Column
-    private Long idAbogado;
+    @ManyToOne
+    @JoinColumn(name = "id_abogado", nullable = false)
+    private AbogadoEntity abogado;
 }
