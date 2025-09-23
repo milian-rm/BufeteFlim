@@ -25,10 +25,19 @@ public class GestionEntity {
     private String estado;
     @Column(length = 250)
     private String observaciones;
-    @Column(nullable = false)
-    private Long idCaso;
-    @Column(nullable = false)
-    private Long idAbogado;
-    @Column(nullable = false)
-    private Long idHistorial;
+
+    // Relación con Abogado
+    @ManyToOne
+    @JoinColumn(name = "id_abogado", nullable = false)
+    private AbogadoEntity abogado;
+
+    // Relación con Caso
+    @ManyToOne
+    @JoinColumn(name = "id_caso", nullable = false)
+    private CasoEntity caso;
+
+    // Relación con Historial
+    @ManyToOne
+    @JoinColumn(name = "id_historial", nullable = false)
+    private HistorialEntity historial;
 }
