@@ -31,4 +31,7 @@ public class AbogadoEntity {
     @Column(length = 150, nullable = false)
     private String especialidad;
 
+    @Column(length = 255, nullable = false)
+    private String password;
+
 }
