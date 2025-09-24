@@ -31,8 +31,7 @@ public class VistaAuthController implements Serializable {
 
         if (abogado != null) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Éxito", "Inicio de sesión exitoso."));
-            return null;
-            //return "/login.xhtml?faces-redirect=true";
+            return "/index.xhtml?faces-redirect=true";
         } else {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", "Credenciales inválidas."));
             return null;

@@ -16,7 +16,7 @@
                 <p:growl id = "mensaje-emergente" showDetails="true"/>
                 <div class="card">
                     <p:menubar style="background-color: #A7CCED;">
-                        <p:menuitem value="Inicio" icon="pi pi-fw pi-user"
+                        <p:menuitem value="Inicio" icon="pi pi-fw pi-user" onclick="window.location.href='/index.xhtml';"
                                     update=":formulario-abogados:tabla-abogados"
                                     actionListener="#{abogadoVistaController.cargarDatos()}"/>
                     </p:menubar>
