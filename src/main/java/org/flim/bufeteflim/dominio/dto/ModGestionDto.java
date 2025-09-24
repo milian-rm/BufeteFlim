@@ -14,11 +14,11 @@ public record ModGestionDto(
         LocalDate expirationDate,
         Status1 status1,
         String observations,
-        @NotNull(message = "El id del caso es obligatorio")
-        Long idCase,
-        @NotNull(message = "El id del abogado es obligatorio")
-        Long idLawyer,
-        @NotNull(message = "El id del historial es obligatorio")
-        Long idRecord
+        @NotNull(message = "El caso es obligatorio")
+        CasoDto caso,
+        @NotNull(message = "El abogado es obligatorio")
+        AbogadoDto abogado,
+        @NotNull(message = "El historial es obligatorio")
+        HistorialDto historial
 ) {
 }

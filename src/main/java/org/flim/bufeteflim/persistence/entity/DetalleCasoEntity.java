@@ -12,10 +12,12 @@ public class DetalleCasoEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long codigo;
-    @Column
-    private Long idParte;
-    @Column
-    private Long idCaso;
+    @ManyToOne
+    @JoinColumn(name = "id_parte", nullable = false)
+    private ParteEntity parte;
+    @ManyToOne
+    @JoinColumn(name = "id_caso", nullable = false)
+    private CasoEntity caso;
     @Column(length = 20)
     private String rolEnCaso;
 }

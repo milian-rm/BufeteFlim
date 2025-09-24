@@ -4,11 +4,9 @@ import java.util.List;
 
 import org.flim.bufeteflim.dominio.dto.AbogadoDto;
 import org.flim.bufeteflim.dominio.dto.ModAbogadoDto;
+import org.flim.bufeteflim.dominio.dto.VerAbogadoDto;
 import org.flim.bufeteflim.persistence.entity.AbogadoEntity;
-import org.mapstruct.InheritInverseConfiguration;
-import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
-import org.mapstruct.MappingTarget;
+import org.mapstruct.*;
 
 @Mapper(componentModel = "spring", uses = {SpecialtyMapper.class})
 public interface AbogadoMapper {
@@ -24,6 +22,7 @@ public interface AbogadoMapper {
 
     List<AbogadoDto> toDto(Iterable<AbogadoEntity> entities);
 
+    @Named("mapearAbogadoDto")
     @InheritInverseConfiguration
     @Mapping(source = "specialty", target = "especialidad", qualifiedByName = "generarEspecialidad")
     AbogadoEntity toEntity(AbogadoDto dto);
@@ -36,4 +35,8 @@ public interface AbogadoMapper {
     @Mapping(source = "phone", target = "telefono")
     @Mapping(source = "specialty", target = "especialidad", qualifiedByName = "generarEspecialidad")
     void modificarEntityFromDto(ModAbogadoDto mod, @MappingTarget AbogadoEntity entity);
+
+    @Mapping(source = "nombre", target = "name")
+    @Mapping(source = "apellido", target = "lastName")
+    VerAbogadoDto verAbogado(AbogadoEntity entity);
 }

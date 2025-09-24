@@ -23,6 +23,10 @@ public class AbogadoService {
         return this.abogadoRepository.buscarPorId(idAbogado);
     }
 
+    public AbogadoDto buscarPorNombre(String nombre){
+        return this.abogadoRepository.buscarPorNombre(nombre);
+    }
+
     public AbogadoDto guardarAbogado(AbogadoDto abogadoDto){
         return this.abogadoRepository.guardarAbogado(abogadoDto);
     }

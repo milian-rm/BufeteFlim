@@ -4,8 +4,8 @@ import jakarta.validation.constraints.NotBlank;
 
 public record ModDetalleCasoDto(
         Long codeDetail,
-        Long idComponent,
-        Long idCase,
+        ParteDto idComponent,
+        CasoDto idCase,
         String role
 ) {
 }

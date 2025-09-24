@@ -2,11 +2,9 @@ package org.flim.bufeteflim.persistence.mapper;
 
 import org.flim.bufeteflim.dominio.dto.CasoDto;
 import org.flim.bufeteflim.dominio.dto.ModCasoDto;
+import org.flim.bufeteflim.dominio.dto.VerCasoDto;
 import org.flim.bufeteflim.persistence.entity.CasoEntity;
-import org.mapstruct.InheritInverseConfiguration;
-import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
-import org.mapstruct.MappingTarget;
+import org.mapstruct.*;
 
 import java.util.List;
 
@@ -23,6 +21,7 @@ public interface CasoMapper {
 
     List<CasoDto> toDto(Iterable<CasoEntity> entities);
 
+    @Named("mapearCasoDto")
     @InheritInverseConfiguration
     @Mapping(source = "status", target = "estado", qualifiedByName = "generarEstado")
     @Mapping(source = "caseType", target = "tipoCaso", qualifiedByName = "generarTipoCaso")
@@ -35,4 +34,7 @@ public interface CasoMapper {
     @Mapping(source = "status", target = "estado", qualifiedByName = "generarEstado")
     @Mapping(source = "caseType", target = "tipoCaso", qualifiedByName = "generarTipoCaso")
     void modificarEntityFromDto(ModCasoDto mod, @MappingTarget CasoEntity entity);
+
+    @Mapping(source = "titulo", target = "title")
+    VerCasoDto verCaso(CasoEntity entity);
 }

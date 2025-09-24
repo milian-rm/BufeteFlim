@@ -13,8 +13,10 @@ public class HistorialEntity {
     private Long idHistorial;
     @Column(length = 250)
     private String descripcion;
-    @Column
-    private Long idAbogado;
-    @Column
-    private Long idCaso;
+    @ManyToOne
+    @JoinColumn(name = "id_abogado", nullable = false)
+    private AbogadoEntity idAbogado;
+    @ManyToOne
+    @JoinColumn(name = "id_caso", nullable = false)
+    private CasoEntity idCaso;
 }

@@ -12,10 +12,13 @@ public class EventoEntity {
     private Long codigo;
     @Column(length = 50)
     private String tipo;
-    @Column
-    private Long idCaso;
-    @Column
-    private Long idAbogado;
-    @Column
-    private Long idHistorial;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "idCaso", referencedColumnName = "idCaso")
+    private CasoEntity caso;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "idAbogado", referencedColumnName = "idAbogado")
+    private AbogadoEntity abogado;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "idHistorial", referencedColumnName = "idHistorial")
+    private HistorialEntity historial;
 }
