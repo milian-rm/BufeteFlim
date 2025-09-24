@@ -2,7 +2,7 @@ INSERT IGNORE INTO partes (nombre, apellido, dpi, estado_civil, fecha_nacimiento
 ('Carlos', 'Ramírez', '1234567890123', 'Casado/a', '1985-06-15', 'Abogado', 'Masculino', 'Ciudad de Guatemala', 'Ladino', 'Zona 1, Ciudad', '5555-1234', '1234567-8', 'Cliente'),
 ('Ana', 'González', '9876543210123', 'Soltero/a', '1992-11-30', 'Secretaria', 'Femenino', 'Antigua Guatemala', 'Maya', 'Zona 2, Ciudad', '5555-5678', '9876543-2', 'Contraparte'),
 ('Luis', 'Martínez', '52951952514', 'Divorciado/a', '1979-03-22', 'Ingeniero', 'Masculino', 'Quetzaltenango', 'Xinca', 'Zona 10, Ciudad', '5555-9999', '1213185-9', 'Cliente'),
-('María', 'López', '1122334455667', 'Union de Hecho', '1995-08-05', 'Estudiante', 'Femenino', 'Chimaltenango', 'Garífuna', 'Zona 18, Ciudad', '5555-8888', '1122334-5', 'Contraparte');
+('María', 'López', '1122334455667', 'UNION_DE_HECHO', '1995-08-05', 'Estudiante', 'Femenino', 'Chimaltenango', 'Garífuna', 'Zona 18, Ciudad', '5555-8888', '1122334-5', 'Contraparte');
 
 INSERT IGNORE INTO abogados (nombre, apellido, dpi, no_colegiado_activo, correo, telefono, especialidad) VALUES
 ('Laura', 'Hernández', '1234567890101', 'A12345', 'laura.hernandez@bufete.com', '5555-1234', 'MERCANTIL'),
@@ -49,4 +49,18 @@ INSERT IGNORE insumos(descripcion, cantidad, costo_unitario, costo) VALUES
 ('Se adquirieron rollos de papel para los baños', 6, 5.50, 6*5.50),
 ('Se adquirieron baterías para los controles de TV de la Sala de Espera', 12, 7.35, 12*7.35),
 ('Se adquirió un Nuevo Escritorio para el Practicante Roberto Milián', 1, 750.99, 750.99),
-('Se adquirió una cubeta de pintura para la Sala de Juntas', 1, 899.99, 899.99)
+('Se adquirió una cubeta de pintura para la Sala de Juntas', 1, 899.99, 899.99);
+
+INSERT INTO timbres (tipo_timbre, id_abogado) VALUES
+('FISCAL', 1),
+('NOTARIAL', 2),
+('FISCAL', 3),
+('NOTARIAL', 1),
+('FISCAL', 4);
+
+INSERT INTO eventos (tipo, id_caso, id_abogado, id_historial) VALUES
+('AUDIENCIA', 1, 1, 1),
+('DEBATE_ORAL', 2, 2, 2),
+('RECONOCIMIENTO_JUDICIAL', 1, 3, 3),
+('DESALOJO', 3, 1, 4),
+('OTRO', 4, 4, 1);
