@@ -3,6 +3,8 @@ package org.flim.bufeteflim.persistence.entity;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.math.BigDecimal;
+
 @Entity
 @Table(name = "insumos")
 @Data
@@ -10,12 +12,12 @@ public class InsumoEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long codigo;
-    @Column
+    @Column(unique = true, nullable = false)
     private String descripcion;
     @Column
     private Long cantidad;
     @Column
-    private Double costoUnitario;
+    private BigDecimal costoUnitario;
     @Column
-    private Double costo;
+    private BigDecimal costo;
 }

@@ -5,6 +5,8 @@ import org.flim.bufeteflim.dominio.dto.ModInsumoDto;
 import org.flim.bufeteflim.dominio.repository.InsumoRepository;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.List;
 
 @Service
@@ -24,10 +26,24 @@ public class InsumoService {
     }
 
     public InsumoDto guardarInsumo(InsumoDto insumoDto) {
-        Double costo = insumoDto.unitaryCost()*insumoDto.cuantity();
+        BigDecimal unitaryCost = insumoDto.unitaryCost();
+        Long cuantity = insumoDto.cuantity();
 
+        BigDecimal calculatedCost = BigDecimal.ZERO;
+        if (unitaryCost != null && cuantity != null) {
+            calculatedCost = unitaryCost.multiply(new BigDecimal(cuantity))
+                    .setScale(2, RoundingMode.HALF_UP);
+        }
 
-        return this.insumoRepository.guardarInsumo(insumoDto);
+        InsumoDto insumoConCostoCalculado = new InsumoDto(
+                insumoDto.codeSupply(),
+                insumoDto.description(),
+                insumoDto.cuantity(),
+                insumoDto.unitaryCost(),
+                calculatedCost.doubleValue()
+        );
+
+        return this.insumoRepository.guardarInsumo(insumoConCostoCalculado);
     }
 
     public InsumoDto modificarInsumo(Long id, ModInsumoDto modInsumoDto) {

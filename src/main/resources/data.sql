@@ -22,8 +22,7 @@ INSERT IGNORE detalles_caso(id_parte, id_caso, rol_en_caso) VALUES
 (1, 1, 'ATTORNEY'),
 (2, 2, 'COUNTERPARTY'),
 (3, 3, 'OTHER'),
-(4, 4, 'COUNTERPARTY'),
-(5, 5, 'COUNTERPARTY');
+(4, 4, 'COUNTERPARTY');
 
 INSERT IGNORE historiales(descripcion, id_abogado, id_caso) VALUES
 ('Se presenta la demanda en el tribunal', 1, 5),
@@ -45,3 +44,9 @@ INSERT IGNORE INTO documentos (nombre, tipo_documento, id_caso) VALUES
 ('Testamento', 'ADMINISTRATIVO', 3),
 ('Acta Notarial', 'CONTRACTUAL', 4),
 ('Cédula de Notificación', 'JUDICIAL', 5);
+
+INSERT IGNORE insumos(descripcion, cantidad, costo_unitario, costo) VALUES
+('Se adquirieron rollos de papel para los baños', 6, 5.50, 6*5.50),
+('Se adquirieron baterías para los controles de TV de la Sala de Espera', 12, 7.35, 12*7.35),
+('Se adquirió un Nuevo Escritorio para el Practicante Roberto Milián', 1, 750.99, 750.99),
+('Se adquirió una cubeta de pintura para la Sala de Juntas', 1, 899.99, 899.99)
