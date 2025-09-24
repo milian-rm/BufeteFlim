@@ -11,6 +11,6 @@ public record ModDocumentoDto(
         @NotNull(message = "El tipo de documento es obligatorio")
         DocumentType documentType,
         @NotNull(message = "El caso al que pertenece el documento es obligatorio")
-        CasoDto casoDto
+        VerCasoDto casoDto
 ) {
 }

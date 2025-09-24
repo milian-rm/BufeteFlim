@@ -3,6 +3,7 @@ package org.flim.bufeteflim.persistence.mapper;
 import org.flim.bufeteflim.dominio.dto.CasoDto;
 import org.flim.bufeteflim.dominio.dto.DocumentoDto;
 import org.flim.bufeteflim.dominio.dto.ModDocumentoDto;
+import org.flim.bufeteflim.dominio.dto.VerCasoDto;
 import org.flim.bufeteflim.persistence.entity.CasoEntity;
 import org.flim.bufeteflim.persistence.entity.DocumentoEntity;
 import org.mapstruct.InheritInverseConfiguration;
@@ -32,7 +33,7 @@ public interface DocumentoMapper {
     @Mapping(target = "caso", expression = "java(casoFromDto(mod.casoDto()))")
     void modificarEntityFromDto(ModDocumentoDto mod, @MappingTarget DocumentoEntity entity);
 
-    default CasoEntity casoFromDto(CasoDto dto) {
+    default CasoEntity casoFromDto(VerCasoDto dto) {
         if (dto == null || dto.idCaso() == null) {
             return null;
         }
