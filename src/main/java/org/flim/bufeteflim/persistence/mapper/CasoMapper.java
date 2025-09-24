@@ -2,6 +2,7 @@ package org.flim.bufeteflim.persistence.mapper;
 
 import org.flim.bufeteflim.dominio.dto.CasoDto;
 import org.flim.bufeteflim.dominio.dto.ModCasoDto;
+import org.flim.bufeteflim.dominio.dto.VerCasoDto;
 import org.flim.bufeteflim.persistence.entity.CasoEntity;
 import org.mapstruct.*;
 
@@ -33,4 +34,7 @@ public interface CasoMapper {
     @Mapping(source = "status", target = "estado", qualifiedByName = "generarEstado")
     @Mapping(source = "caseType", target = "tipoCaso", qualifiedByName = "generarTipoCaso")
     void modificarEntityFromDto(ModCasoDto mod, @MappingTarget CasoEntity entity);
+
+    @Mapping(source = "titulo", target = "title")
+    VerCasoDto verCaso(CasoEntity entity);
 }

@@ -1,9 +1,6 @@
 package org.flim.bufeteflim.persistence.mapper;
 
-import org.flim.bufeteflim.dominio.dto.AbogadoDto;
-import org.flim.bufeteflim.dominio.dto.CasoDto;
-import org.flim.bufeteflim.dominio.dto.HistorialDto;
-import org.flim.bufeteflim.dominio.dto.ModHistorialDto;
+import org.flim.bufeteflim.dominio.dto.*;
 import org.flim.bufeteflim.persistence.entity.AbogadoEntity;
 import org.flim.bufeteflim.persistence.entity.CasoEntity;
 import org.flim.bufeteflim.persistence.entity.HistorialEntity;
@@ -35,7 +32,7 @@ public interface HistorialMapper {
     @Mapping(target = "idCaso", expression = "java(casoFromDto(mod.idCase()))")
     void modificarEntityFromDto(ModHistorialDto mod, @MappingTarget HistorialEntity entity);
 
-    default CasoEntity casoFromDto(CasoDto dto) {
+    default CasoEntity casoFromDto(VerCasoDto dto) {
         if (dto == null || dto.idCaso() == null) {
             return null;
         }
@@ -44,7 +41,7 @@ public interface HistorialMapper {
         return caso;
     }
 
-    default AbogadoEntity abogadoFromDto(AbogadoDto dto) {
+    default AbogadoEntity abogadoFromDto(VerAbogadoDto dto) {
         if (dto == null || dto.idAbogado() == null) {
             return null;
         }

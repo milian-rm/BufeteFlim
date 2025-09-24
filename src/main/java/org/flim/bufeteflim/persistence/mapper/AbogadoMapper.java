@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.flim.bufeteflim.dominio.dto.AbogadoDto;
 import org.flim.bufeteflim.dominio.dto.ModAbogadoDto;
+import org.flim.bufeteflim.dominio.dto.VerAbogadoDto;
 import org.flim.bufeteflim.persistence.entity.AbogadoEntity;
 import org.mapstruct.*;
 
@@ -34,4 +35,8 @@ public interface AbogadoMapper {
     @Mapping(source = "phone", target = "telefono")
     @Mapping(source = "specialty", target = "especialidad", qualifiedByName = "generarEspecialidad")
     void modificarEntityFromDto(ModAbogadoDto mod, @MappingTarget AbogadoEntity entity);
+
+    @Mapping(source = "nombre", target = "name")
+    @Mapping(source = "apellido", target = "lastName")
+    VerAbogadoDto verAbogado(AbogadoEntity entity);
 }
