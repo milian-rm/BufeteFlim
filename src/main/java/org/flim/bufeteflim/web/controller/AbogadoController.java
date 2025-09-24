@@ -23,9 +23,6 @@ import org.springframework.web.bind.annotation.*;
 import java.io.Serializable;
 import java.util.List;
 
-@Component
-@ViewScoped
-@Data
 @RestController
 @RequestMapping("/v1/abogados")
 @Tag(name = "Abogados", description = "Operaciones Crud para Abogados dentro de Bufete Flim")

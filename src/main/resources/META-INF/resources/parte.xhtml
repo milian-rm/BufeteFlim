@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<h:html xmlns:h="http://xmlns.jcp.org/jsf/html"
+        xmlns:f="http://xmlns.jcp.org/jsf/core"
+        xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>
+            Registro Parte
+        </title>
+        <link rel="stylesheet" href="https://unpkg.com/primeflex@latest/primeflex.css"/>
+        <link rel="stylesheet" href="https://unpkg.com/primeflex/themes/primeone-light.css"/>
+    </h:head>
+    <h:body style="background-color: #F2F2F2;">
+        <div class="card">
+            <h:form id="formulario-partes">
+                <p:growl id = "mensaje-emergente" showDetails="true"/>
+                <div class="card">
+                    <p:menubar style="background-color: #A7CCED;">
+                        <p:menuitem value="Inicio" icon="pi pi-fw pi-user"
+                                    update=":formulario-partes:tabla-partes"
+                                    actionListener="#{parteVistaController.cargarDatos()}"/>
+                    </p:menubar>
+                </div>
+
+                <div class="card">
+                    <p:dataTable value="#{parteVistaController.partes}" var="parte"
+                                 id="tabla-partes" widgetVar="parteTabla">
+                        <f:facet name="header">
+                            <div class="flex justify-content-center flex-wrap
+                                        card-container yellow-container">
+                                <div class="flex align-items-center justify-content-center
+                                        w-20rem h4rem  font-bold m-2
+                                        text-gray-900 border-round"
+                                     style="background-color: #82A0BC;">
+                                    <h3>Partes</h3>
+                                </div>
+                            </div>
+                        </f:facet>
+                        <p:column headerText="NOMBRE">
+                            <h:outputText value="#{parte.name()}"/>
+                        </p:column>
+                        <p:column headerText="APELLIDO">
+                            <h:outputText value="#{parte.lastName()}"/>
+                        </p:column>
+                        <p:column headerText="DPI">
+                            <h:outputText value="#{parte.dpi()}"/>
+                        </p:column>
+                        <p:column headerText="ESTADO_CIVIL">
+                            <h:outputText value="#{parte.maritalStatus()}"/>
+                        </p:column>
+                        <p:column headerText="FECHA_NACIMIENTO">
+                            <h:outputText value="#{parte.birthdate()}"/>
+                        </p:column>
+                        <p:column headerText="OFICIO">
+                            <h:outputText value="#{parte.job()}"/>
+                        </p:column>
+                        <p:column headerText="GENERO">
+                            <h:outputText value="#{parte.gender()}"/>
+                        </p:column>
+                        <p:column headerText="LUGAR_NACIMIENTO">
+                            <h:outputText value="#{parte.birthplace()}"/>
+                        </p:column>
+                        <p:column headerText="ETNIA">
+                            <h:outputText value="#{parte.ethnicity()}"/>
+                        </p:column>
+                        <p:column headerText="DOMICILIO">
+                            <h:outputText value="#{parte.address()}"/>
+                        </p:column>
+                        <p:column headerText="TELÉFONO">
+                            <h:outputText value="#{parte.phoneNumber()}"/>
+                        </p:column>
+
+                    </p:dataTable>
+                </div>
+            </h:form>
+        </div>
+    </h:body>
+</h:html>

@@ -17,13 +17,11 @@ import java.util.List;
 
 
 @Component
-@ViewScoped
 @Data
 public class AbogadoVistaController{
     @Autowired
     AbogadoRepository abogadoService;
     private List<AbogadoDto> abogados;
-    private AbogadoEntity usuarioSeleccionado;
     private static Logger logger = LoggerFactory.getLogger(AbogadoVistaController.class);
 
     @PostConstruct
