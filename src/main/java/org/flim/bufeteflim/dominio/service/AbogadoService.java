@@ -38,4 +38,5 @@ public class AbogadoService {
     public void eliminarAbogado(Long id){
         this.abogadoRepository.eliminarAbogado(id);
     }
+
 }

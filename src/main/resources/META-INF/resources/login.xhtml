@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<h:html xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:f="http://xmlns.jcp.org/jsf/core"
+        xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <title>Login - Bufete FLIM</title>
+        <link rel="stylesheet" href="https://unpkg.com/primeflex@3.3.1/primeflex.css"/>
+        <link rel="stylesheet" href="https://unpkg.com/primeflex/themes/primeone-light.css"/>
+        <style>
+            body {
+                background: #A7CCED;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                margin: 0;
+                height: 100vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .login-card {
+                width: 350px;
+                padding: 1.5rem;
+                border-radius: 1rem;
+                background: #ffff;
+                box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            }
+            .login-card h2 {
+                margin-bottom: 1.5rem;
+                text-align: center;
+                color: #333;
+            }
+            .campo {
+                margin-bottom: 1.5rem;
+            }
+        </style>
+    </h:head>
+
+    <h:body>
+        <h:form id="loginForm" prependId="false">
+            <p:growl id="messages" showDetail="true" life="3000"/>
+
+            <div class="login-card">
+                <h2>Iniciar Sesión</h2>
+
+                <div class="campo">
+                    <p:outputLabel for="correo" value="Correo:"/>
+                    <div class="ui-inputgroup mt-2">
+                        <div class="ui-inputgroup-addon">
+                            <i class="pi pi-at"></i>
+                        </div>
+                        <p:inputText id="correo" value="#{vistaAuthController.correo}" required="true"
+                                     requiredMessage="El correo es obligatorio" class="w-full"/>
+                    </div>
+                </div>
+
+                <div class="campo">
+                    <p:outputLabel for="password" value="Contraseña:"/>
+                    <div class="ui-inputgroup mt-2">
+                        <div class="ui-inputgroup-addon">
+                            <i class="pi pi-lock"></i>
+                        </div>
+                        <p:password id="password" value="#{vistaAuthController.password}" required="true"
+                                    requiredMessage="La contraseña es obligatoria" class="w-full" toggleMask="true"
+                                    redisplay="true"/>
+                    </div>
+                </div>
+
+                <div class="campo mt-4">
+                    <p:commandButton value="Ingresar"
+                                     action="#{vistaAuthController.verificarCredenciales()}"
+                                     update="loginForm messages"
+                                     styleClass="p-button-rounded"
+                                     class="w-full"/>
+                </div>
+            </div>
+        </h:form>
+    </h:body>
+</h:html>
