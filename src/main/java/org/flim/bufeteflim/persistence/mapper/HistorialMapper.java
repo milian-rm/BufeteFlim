@@ -32,6 +32,10 @@ public interface HistorialMapper {
     @Mapping(target = "idCaso", expression = "java(casoFromDto(mod.idCase()))")
     void modificarEntityFromDto(ModHistorialDto mod, @MappingTarget HistorialEntity entity);
 
+    @Mapping(source = "idHistorial", target = "code")
+    @Mapping(source = "descripcion", target = "description")
+    VerHistorialDto verHistorial(HistorialEntity entity);
+
     default CasoEntity casoFromDto(VerCasoDto dto) {
         if (dto == null || dto.idCaso() == null) {
             return null;

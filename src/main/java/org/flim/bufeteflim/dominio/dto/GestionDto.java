@@ -24,10 +24,10 @@ public record GestionDto(
         @NotBlank(message = "Las observaciones son obligatorias")
         String observations,
         @NotNull(message = "El caso es obligatorio")
-        CasoDto caso,
+        VerCasoDto idCase,
         @NotNull(message = "El abogado es obligatorio")
-        AbogadoDto abogado,
+        VerAbogadoDto idLawyer,
         @NotNull(message = "El historial es obligatorio")
-        HistorialDto historial
+        VerHistorialDto idRecord
 ){
 }

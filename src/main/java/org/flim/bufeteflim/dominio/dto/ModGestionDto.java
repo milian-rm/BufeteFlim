@@ -15,10 +15,10 @@ public record ModGestionDto(
         Status1 status1,
         String observations,
         @NotNull(message = "El caso es obligatorio")
-        CasoDto caso,
+        VerCasoDto caso,
         @NotNull(message = "El abogado es obligatorio")
-        AbogadoDto abogado,
+        VerAbogadoDto abogado,
         @NotNull(message = "El historial es obligatorio")
-        HistorialDto historial
+        VerHistorialDto historial
 ) {
 }
