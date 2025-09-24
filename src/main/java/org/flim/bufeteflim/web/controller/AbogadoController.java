@@ -25,7 +25,6 @@ import java.io.Serializable;
 import java.util.List;
 
 @Component
-@ViewScoped
 @Data
 @RestController
 @RequestMapping("/v1/abogados")
