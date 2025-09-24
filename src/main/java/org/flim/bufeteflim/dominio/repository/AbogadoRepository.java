@@ -7,7 +7,6 @@ import org.flim.bufeteflim.dominio.dto.ModAbogadoDto;
 
 
 public interface AbogadoRepository {
-    
     List<AbogadoDto> obtenerTodo();
     public AbogadoDto buscarPorId(Long idAbogado);
     AbogadoDto guardarAbogado(AbogadoDto abogadoDto);
