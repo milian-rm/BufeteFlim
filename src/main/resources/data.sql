@@ -22,8 +22,7 @@ INSERT IGNORE detalles_caso(id_parte, id_caso, rol_en_caso) VALUES
 (1, 1, 'ATTORNEY'),
 (2, 2, 'COUNTERPARTY'),
 (3, 3, 'OTHER'),
-(4, 4, 'COUNTERPARTY'),
-(5, 5, 'COUNTERPARTY');
+(4, 4, 'COUNTERPARTY');
 
 INSERT IGNORE historiales(descripcion, id_abogado, id_caso) VALUES
 ('Se presenta la demanda en el tribunal', 1, 5),
