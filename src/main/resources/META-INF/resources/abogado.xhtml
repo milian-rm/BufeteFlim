@@ -8,6 +8,7 @@
         </title>
         <link rel="stylesheet" href="https://unpkg.com/primeflex@latest/primeflex.css"/>
         <link rel="stylesheet" href="https://unpkg.com/primeflex/themes/primeone-light.css"/>
+
     </h:head>
     <h:body style="background-color: #F2F2F2;">
         <div class="card">
@@ -20,7 +21,6 @@
                                     actionListener="#{abogadoVistaController.cargarDatos()}"/>
                     </p:menubar>
                 </div>
-
                 <div class="card">
                     <p:dataTable value="#{abogadoVistaController.abogados}" var="abogado"
                                  id="tabla-abogados" widgetVar="abogadoTabla">
