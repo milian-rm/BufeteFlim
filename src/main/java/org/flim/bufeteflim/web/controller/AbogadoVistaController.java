@@ -17,6 +17,7 @@ import java.util.List;
 
 
 @Component
+@ViewScoped
 @Data
 public class AbogadoVistaController{
     @Autowired

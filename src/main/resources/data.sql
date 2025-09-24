@@ -44,3 +44,9 @@ INSERT IGNORE INTO documentos (nombre, tipo_documento, id_caso) VALUES
 ('Testamento', 'ADMINISTRATIVO', 3),
 ('Acta Notarial', 'CONTRACTUAL', 4),
 ('Cédula de Notificación', 'JUDICIAL', 5);
+
+INSERT IGNORE insumos(descripcion, cantidad, costo_unitario, costo) VALUES
+('Se adquirieron rollos de papel para los baños', 6, 5.50, 6*5.50),
+('Se adquirieron baterías para los controles de TV de la Sala de Espera', 12, 7.35, 12*7.35),
+('Se adquirió un Nuevo Escritorio para el Practicante Roberto Milián', 1, 750.99, 750.99),
+('Se adquirió una cubeta de pintura para la Sala de Juntas', 1, 899.99, 899.99)
